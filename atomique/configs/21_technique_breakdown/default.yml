@@ -1,0 +1,11 @@
+backend_params:
+  binding_params: ["fpqac_qubit_atom_mapper", "fpqac_router","fpqac_generic_partition_method"]
+  retranspile_changes:
+    fpqac_qubit_atom_mapper: ['random','random', 'default', 'default']
+    fpqac_router: ['serial','serial', 'serial', 'default']
+    fpqac_generic_partition_method: ["dense","heuristic","heuristic","heuristic"]
+    n_rows: [[7,7,7]]
+    n_cols: [[7,7,7]]
+
+
+  

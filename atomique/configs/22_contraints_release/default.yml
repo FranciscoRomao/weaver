@@ -1,0 +1,25 @@
+count_gates: True
+compiler:
+  name: fpqac_generic
+backend_params:
+  base_set: default0
+  binding_params: ["fpqac_individual_addressable", "fpqac_allow_order_violation", "fpqac_allow_overlap_violation"]
+  nonretranspile_changes:
+    geyser_dump_transpiled_qasm: [False]
+  retranspile_changes:
+    fpqac_individual_addressable: [False,True,False,False]
+    fpqac_allow_order_violation: [False,False,True,True]
+    fpqac_allow_overlap_violation: [False,False,False,True]
+benchmarks:
+- name: qaoa_rand
+  p: [0.5]
+  n_qubits: [100]
+  i: 1
+- name: qsim_rand
+  p: [0.5]
+  keep_length: [10]
+  n_qubits: [100]
+  i: 1
+- name: supermarq
+  type: ['phase_code']
+  n_qubits: [100]

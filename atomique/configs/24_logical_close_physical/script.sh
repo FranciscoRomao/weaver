@@ -1,0 +1,1 @@
+python run.py configs/24_logical_close_physical/default.yml

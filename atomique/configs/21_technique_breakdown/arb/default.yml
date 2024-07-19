@@ -1,0 +1,40 @@
+backend_params:
+  base_set: default0
+  nonretranspile_changes:
+    geyser_dump_transpiled_qasm: [False]
+
+# benchmarks:
+# - name: algorithm
+#   type: ['hhl']
+#   n_qubits: [7]
+# - name: supermarq
+#   type: ['mermin_bell']
+#   n_qubits: [10]
+# - name: supermarq
+#   type: ['bit_code']
+#   n_qubits: [20]
+# - name: algorithm
+#   type: ['qft']
+#   n_qubits: [29]
+# - name: supermarq
+#   type: ['vqe_proxy']
+#   n_qubits: [50]
+# - name: algorithm
+#   type: ['adder']
+#   n_qubits: [64]
+# - name: algorithm
+#   type: ['bv']
+#   n_qubits: [70]
+# - name: algorithm
+#   type: ['swap_test']
+#   n_qubits: [83]
+
+
+benchmarks:
+  - name: arbitrary_designed
+    n_qubits: [10, 20, 40, 100]
+    n_gates: [26]
+    max_distance_2q: [10]
+    n_interact_q: [7]
+    i: 1
+    

@@ -1,0 +1,35 @@
+compiler:
+  name: fpqac_generic
+  print_log: False
+  results_path: evaluation/results
+
+backend_params:
+  base_set: default1
+  retranspile_changes: {}
+  nonretranspile_changes: {}
+  backer_penalty: [0]
+
+#defaults1 = {
+#    "U3_GATE_FIDELITY": 0.999,
+#    "U3_GATE_DURATION": 0.5, # in microseconds
+#    "CZ_GATE_FIDELITY": 0.995,
+#    "CZ_GATE_DURATION": 0.2, # in microseconds
+#    "CCZ_GATE_FIDELITY": 0.98,
+#    "CCZ_GATE_DURATION": 1, # in microseconds
+#    "QUBIT_DECAY":  1e08, # t1 in microseconds 
+#    "QUBIT_DEPHASING": 1.5e06, # t2 in microseconds
+#    "SHUTTLE_FIDELITY": 1,
+#    "SHUTTLING_SPEED": 0.55, # in micrometers/microseconds
+#    "TRAP_SWAP_DURATION": 20,
+#    "INTERACTION_RADIUS": 2.0, # in micrometers
+#    "RESTRICTION_RADIUS": 4.0 # in micrometers
+#    "TRAP_TRANSFER_PROXIMITY": 1e-05, # in micrometers
+#    "AOD_BEAM_RPOXIMITY": 1e-03 # in micrometers
+
+
+benchmarks:
+- name: QASMBench
+  type: ['a1', 'b1', 'c1', 'd1', 'e1']
+  n_qubits: [100]
+
+count_gates: True

@@ -1,0 +1,14 @@
+compiler:
+  name : 'geyser'
+
+backend_params:
+  base_set: default0
+  retranspile_changes:
+    geyser_use_blocking : [False]
+
+benchmarks:
+  - name: qsim_rand
+    n_qubits: [10,20,40,60,80,100]
+    p: [0.1,0.2,0.3,0.4,0.5,0.6,0.7]
+    keep_length: [10]
+    i: 3

@@ -1,0 +1,9 @@
+backend_params:
+  base_set: default0
+  nonretranspile_changes:
+    geyser_dump_transpiled_qasm: [False]
+
+benchmarks:
+- name: algorithm
+  type: ['bv']
+  n_qubits: [70]

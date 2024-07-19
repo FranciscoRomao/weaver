@@ -1,0 +1,12 @@
+backend_params:
+  base_set: default0
+  nonretranspile_changes:
+    geyser_dump_transpiled_qasm: [False]
+
+
+
+benchmarks:
+- name: qaoa_regular
+  regular: [5]
+  n_qubits: [40]
+  i: 1

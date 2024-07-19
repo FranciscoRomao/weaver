@@ -1,0 +1,1 @@
+python run.py configs/dump_full_report/arb/fpqac.yml

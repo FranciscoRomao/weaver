@@ -1,0 +1,1 @@
+python run.py configs/tab2_benchmark/fpqac.yml

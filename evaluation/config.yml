@@ -1,0 +1,26 @@
+geyser:
+  run:  
+    iterations: 10
+    instante_type: stored #generated (independent) or stored (dependent)
+    instance_clauses: [1,2,3,4,5,6,7,8,9,10] #uniform independent clauses
+    instances_names: ['uuf50-01.cnf', 'uuf50-02.cnf', 'uuf50-03.cnf', 'uuf50-04.cnf', 'uuf50-05.cnf']
+    qaoa_depth: 1
+
+atomique:
+  run:  
+    instances_names: ['uf20-01.cnf', 'uf20-02.cnf', 'uf20-03.cnf', 'uf20-04.cnf', 'uf20-05.cnf']
+    qaoa_depth: 1
+
+instances_to_qasm:
+  run:  
+    instances_names: ['uuf100-01.cnf',
+                      'uuf100-02.cnf',
+                      'uuf100-03.cnf',
+                      'uuf100-04.cnf',
+                      'uuf100-05.cnf',
+                      'uuf250-01.cnf',
+                      'uuf250-02.cnf',
+                      'uuf250-03.cnf',
+                      'uuf250-04.cnf',
+                      'uuf250-05.cnf']
+    qaoa_depth: 3

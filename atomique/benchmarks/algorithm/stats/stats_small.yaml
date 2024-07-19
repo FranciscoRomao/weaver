@@ -1,0 +1,626 @@
+adder_n10_transpiled.qasm:
+  interact_qubit_list:
+  - 3
+  - 3
+  - 3
+  - 3
+  interact_qubit_list_mean: 3.0
+  interact_qubit_list_std: 0.0
+  n_2q_gate_qubit_list:
+  - 44
+  - 32
+  - 32
+  - 22
+  n_2q_gate_qubit_list_mean: 32.5
+  n_2q_gate_qubit_list_std: 7.794228634059948
+  num_1q_gates: 101
+  num_2q_gates: 65
+  num_qubits: 10
+adder_n4_transpiled.qasm:
+  interact_qubit_list:
+  - 2
+  - 2
+  - 2
+  - 2
+  interact_qubit_list_mean: 2.0
+  interact_qubit_list_std: 0.0
+  n_2q_gate_qubit_list:
+  - 5
+  - 4
+  - 5
+  - 6
+  n_2q_gate_qubit_list_mean: 5.0
+  n_2q_gate_qubit_list_std: 0.7071067811865476
+  num_1q_gates: 17
+  num_2q_gates: 10
+  num_qubits: 4
+basis_change_n3_transpiled.qasm:
+  interact_qubit_list:
+  - 2
+  - 1
+  - 1
+  interact_qubit_list_mean: 1.3333333333333333
+  interact_qubit_list_std: 0.4714045207910317
+  n_2q_gate_qubit_list:
+  - 10
+  - 6
+  - 4
+  n_2q_gate_qubit_list_mean: 6.666666666666667
+  n_2q_gate_qubit_list_std: 2.494438257849294
+  num_1q_gates: 75
+  num_2q_gates: 10
+  num_qubits: 3
+basis_test_n4_transpiled.qasm:
+  interact_qubit_list:
+  - 2
+  - 2
+  - 1
+  - 1
+  interact_qubit_list_mean: 1.5
+  interact_qubit_list_std: 0.5
+  n_2q_gate_qubit_list:
+  - 32
+  - 32
+  - 14
+  - 14
+  n_2q_gate_qubit_list_mean: 23.0
+  n_2q_gate_qubit_list_std: 9.0
+  num_1q_gates: 67
+  num_2q_gates: 46
+  num_qubits: 4
+basis_trotter_n4_transpiled.qasm:
+  interact_qubit_list:
+  - 2
+  - 2
+  - 1
+  - 1
+  interact_qubit_list_mean: 1.5
+  interact_qubit_list_std: 0.5
+  n_2q_gate_qubit_list:
+  - 408
+  - 408
+  - 174
+  - 174
+  n_2q_gate_qubit_list_mean: 291.0
+  n_2q_gate_qubit_list_std: 117.0
+  num_1q_gates: 1771
+  num_2q_gates: 582
+  num_qubits: 4
+bb84_n8_transpiled.qasm:
+  interact_qubit_list: []
+  interact_qubit_list_mean: .nan
+  interact_qubit_list_std: .nan
+  n_2q_gate_qubit_list: []
+  n_2q_gate_qubit_list_mean: .nan
+  n_2q_gate_qubit_list_std: .nan
+  num_1q_gates: 29
+  num_2q_gates: 0
+  num_qubits: 8
+bell_n4_transpiled.qasm:
+  interact_qubit_list:
+  - 2
+  - 2
+  - 1
+  - 1
+  interact_qubit_list_mean: 1.5
+  interact_qubit_list_std: 0.5
+  n_2q_gate_qubit_list:
+  - 4
+  - 4
+  - 3
+  - 3
+  n_2q_gate_qubit_list_mean: 3.5
+  n_2q_gate_qubit_list_std: 0.5
+  num_1q_gates: 46
+  num_2q_gates: 7
+  num_qubits: 4
+cat_state_n4_transpiled.qasm:
+  interact_qubit_list:
+  - 1
+  - 2
+  - 2
+  - 1
+  interact_qubit_list_mean: 1.5
+  interact_qubit_list_std: 0.5
+  n_2q_gate_qubit_list:
+  - 1
+  - 2
+  - 2
+  - 1
+  n_2q_gate_qubit_list_mean: 1.5
+  n_2q_gate_qubit_list_std: 0.5
+  num_1q_gates: 3
+  num_2q_gates: 3
+  num_qubits: 4
+deutsch_n2_transpiled.qasm:
+  interact_qubit_list:
+  - 1
+  - 1
+  interact_qubit_list_mean: 1.0
+  interact_qubit_list_std: 0.0
+  n_2q_gate_qubit_list:
+  - 1
+  - 1
+  n_2q_gate_qubit_list_mean: 1.0
+  n_2q_gate_qubit_list_std: 0.0
+  num_1q_gates: 9
+  num_2q_gates: 1
+  num_qubits: 2
+dnn_n2_transpiled.qasm:
+  interact_qubit_list:
+  - 1
+  - 1
+  interact_qubit_list_mean: 1.0
+  interact_qubit_list_std: 0.0
+  n_2q_gate_qubit_list:
+  - 42
+  - 42
+  n_2q_gate_qubit_list_mean: 42.0
+  n_2q_gate_qubit_list_std: 0.0
+  num_1q_gates: 264
+  num_2q_gates: 42
+  num_qubits: 2
+dnn_n8_transpiled.qasm:
+  interact_qubit_list:
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  interact_qubit_list_mean: 2.0
+  interact_qubit_list_std: 0.0
+  n_2q_gate_qubit_list:
+  - 48
+  - 48
+  - 48
+  - 48
+  - 48
+  - 48
+  - 48
+  - 48
+  n_2q_gate_qubit_list_mean: 48.0
+  n_2q_gate_qubit_list_std: 0.0
+  num_1q_gates: 1224
+  num_2q_gates: 192
+  num_qubits: 8
+error_correctiond3_n5_transpiled.qasm:
+  interact_qubit_list:
+  - 2
+  - 4
+  - 1
+  - 2
+  - 1
+  interact_qubit_list_mean: 2.0
+  interact_qubit_list_std: 1.0954451150103321
+  n_2q_gate_qubit_list:
+  - 16
+  - 48
+  - 15
+  - 10
+  - 9
+  n_2q_gate_qubit_list_mean: 19.6
+  n_2q_gate_qubit_list_std: 14.458215657542254
+  num_1q_gates: 188
+  num_2q_gates: 49
+  num_qubits: 5
+fredkin_n3_transpiled.qasm:
+  interact_qubit_list:
+  - 2
+  - 2
+  - 2
+  interact_qubit_list_mean: 2.0
+  interact_qubit_list_std: 0.0
+  n_2q_gate_qubit_list:
+  - 6
+  - 6
+  - 4
+  n_2q_gate_qubit_list_mean: 5.333333333333333
+  n_2q_gate_qubit_list_std: 0.9428090415820634
+  num_1q_gates: 14
+  num_2q_gates: 8
+  num_qubits: 3
+grover_n2_transpiled.qasm:
+  interact_qubit_list:
+  - 1
+  - 1
+  interact_qubit_list_mean: 1.0
+  interact_qubit_list_std: 0.0
+  n_2q_gate_qubit_list:
+  - 2
+  - 2
+  n_2q_gate_qubit_list_mean: 2.0
+  n_2q_gate_qubit_list_std: 0.0
+  num_1q_gates: 13
+  num_2q_gates: 2
+  num_qubits: 2
+hs4_n4_transpiled.qasm:
+  interact_qubit_list:
+  - 1
+  - 1
+  - 1
+  - 1
+  interact_qubit_list_mean: 1.0
+  interact_qubit_list_std: 0.0
+  n_2q_gate_qubit_list:
+  - 2
+  - 2
+  - 2
+  - 2
+  n_2q_gate_qubit_list_mean: 2.0
+  n_2q_gate_qubit_list_std: 0.0
+  num_1q_gates: 24
+  num_2q_gates: 4
+  num_qubits: 4
+inverseqft_n4_transpiled.qasm:
+  interact_qubit_list: []
+  interact_qubit_list_mean: .nan
+  interact_qubit_list_std: .nan
+  n_2q_gate_qubit_list: []
+  n_2q_gate_qubit_list_mean: .nan
+  n_2q_gate_qubit_list_std: .nan
+  num_1q_gates: 31
+  num_2q_gates: 0
+  num_qubits: 4
+ipea_n2_transpiled.qasm:
+  interact_qubit_list:
+  - 1
+  - 1
+  interact_qubit_list_mean: 1.0
+  interact_qubit_list_std: 0.0
+  n_2q_gate_qubit_list:
+  - 30
+  - 30
+  n_2q_gate_qubit_list_mean: 30.0
+  n_2q_gate_qubit_list_std: 0.0
+  num_1q_gates: 71
+  num_2q_gates: 30
+  num_qubits: 2
+ising_n10_transpiled.qasm:
+  interact_qubit_list:
+  - 1
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 1
+  interact_qubit_list_mean: 1.8
+  interact_qubit_list_std: 0.4
+  n_2q_gate_qubit_list:
+  - 10
+  - 20
+  - 20
+  - 20
+  - 20
+  - 20
+  - 20
+  - 20
+  - 20
+  - 10
+  n_2q_gate_qubit_list_mean: 18.0
+  n_2q_gate_qubit_list_std: 4.0
+  num_1q_gates: 325
+  num_2q_gates: 90
+  num_qubits: 10
+iswap_n2_transpiled.qasm:
+  interact_qubit_list:
+  - 1
+  - 1
+  interact_qubit_list_mean: 1.0
+  interact_qubit_list_std: 0.0
+  n_2q_gate_qubit_list:
+  - 2
+  - 2
+  n_2q_gate_qubit_list_mean: 2.0
+  n_2q_gate_qubit_list_std: 0.0
+  num_1q_gates: 12
+  num_2q_gates: 2
+  num_qubits: 2
+linearsolver_n3_transpiled.qasm:
+  interact_qubit_list:
+  - 1
+  - 2
+  - 1
+  interact_qubit_list_mean: 1.3333333333333333
+  interact_qubit_list_std: 0.4714045207910317
+  n_2q_gate_qubit_list:
+  - 2
+  - 4
+  - 2
+  n_2q_gate_qubit_list_mean: 2.6666666666666665
+  n_2q_gate_qubit_list_std: 0.9428090415820634
+  num_1q_gates: 22
+  num_2q_gates: 4
+  num_qubits: 3
+lpn_n5_transpiled.qasm:
+  interact_qubit_list:
+  - 1
+  - 2
+  - 1
+  interact_qubit_list_mean: 1.3333333333333333
+  interact_qubit_list_std: 0.4714045207910317
+  n_2q_gate_qubit_list:
+  - 1
+  - 2
+  - 1
+  n_2q_gate_qubit_list_mean: 1.3333333333333333
+  n_2q_gate_qubit_list_std: 0.4714045207910317
+  num_1q_gates: 15
+  num_2q_gates: 2
+  num_qubits: 5
+pea_n5_transpiled.qasm:
+  interact_qubit_list:
+  - 4
+  - 4
+  - 4
+  - 4
+  - 4
+  interact_qubit_list_mean: 4.0
+  interact_qubit_list_std: 0.0
+  n_2q_gate_qubit_list:
+  - 8
+  - 30
+  - 10
+  - 14
+  - 22
+  n_2q_gate_qubit_list_mean: 16.8
+  n_2q_gate_qubit_list_std: 8.158431221748456
+  num_1q_gates: 66
+  num_2q_gates: 42
+  num_qubits: 5
+qaoa_n3_transpiled.qasm:
+  interact_qubit_list:
+  - 2
+  - 2
+  - 2
+  interact_qubit_list_mean: 2.0
+  interact_qubit_list_std: 0.0
+  n_2q_gate_qubit_list:
+  - 4
+  - 4
+  - 4
+  n_2q_gate_qubit_list_mean: 4.0
+  n_2q_gate_qubit_list_std: 0.0
+  num_1q_gates: 26
+  num_2q_gates: 6
+  num_qubits: 3
+qaoa_n6_transpiled.qasm:
+  interact_qubit_list:
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  interact_qubit_list_mean: 3.0
+  interact_qubit_list_std: 0.0
+  n_2q_gate_qubit_list:
+  - 18
+  - 18
+  - 18
+  - 18
+  - 18
+  - 18
+  n_2q_gate_qubit_list_mean: 18.0
+  n_2q_gate_qubit_list_std: 0.0
+  num_1q_gates: 324
+  num_2q_gates: 54
+  num_qubits: 6
+qec_en_n5_transpiled.qasm:
+  interact_qubit_list:
+  - 1
+  - 4
+  - 1
+  - 1
+  - 1
+  interact_qubit_list_mean: 1.6
+  interact_qubit_list_std: 1.2000000000000002
+  n_2q_gate_qubit_list:
+  - 3
+  - 10
+  - 2
+  - 3
+  - 2
+  n_2q_gate_qubit_list_mean: 4.0
+  n_2q_gate_qubit_list_std: 3.03315017762062
+  num_1q_gates: 36
+  num_2q_gates: 10
+  num_qubits: 5
+qec_sm_n5_transpiled.qasm:
+  interact_qubit_list:
+  - 2
+  - 3
+  - 1
+  interact_qubit_list_mean: 2.0
+  interact_qubit_list_std: 0.816496580927726
+  n_2q_gate_qubit_list:
+  - 3
+  - 4
+  - 1
+  n_2q_gate_qubit_list_mean: 2.6666666666666665
+  n_2q_gate_qubit_list_std: 1.247219128924647
+  num_1q_gates: 5
+  num_2q_gates: 4
+  num_qubits: 5
+qft_n4_transpiled.qasm:
+  interact_qubit_list:
+  - 3
+  - 3
+  - 3
+  - 3
+  interact_qubit_list_mean: 3.0
+  interact_qubit_list_std: 0.0
+  n_2q_gate_qubit_list:
+  - 6
+  - 6
+  - 6
+  - 6
+  n_2q_gate_qubit_list_mean: 6.0
+  n_2q_gate_qubit_list_std: 0.0
+  num_1q_gates: 33
+  num_2q_gates: 12
+  num_qubits: 4
+qpe_n9_transpiled.qasm:
+  interact_qubit_list:
+  - 2
+  - 3
+  - 7
+  - 1
+  - 5
+  - 5
+  - 5
+  - 5
+  - 5
+  interact_qubit_list_mean: 4.222222222222222
+  interact_qubit_list_std: 1.7497795275581802
+  n_2q_gate_qubit_list:
+  - 8
+  - 9
+  - 18
+  - 1
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  n_2q_gate_qubit_list_mean: 9.555555555555555
+  n_2q_gate_qubit_list_std: 4.058218303944372
+  num_1q_gates: 113
+  num_2q_gates: 43
+  num_qubits: 9
+qrng_n4_transpiled.qasm:
+  interact_qubit_list: []
+  interact_qubit_list_mean: .nan
+  interact_qubit_list_std: .nan
+  n_2q_gate_qubit_list: []
+  n_2q_gate_qubit_list_mean: .nan
+  n_2q_gate_qubit_list_std: .nan
+  num_1q_gates: 12
+  num_2q_gates: 0
+  num_qubits: 4
+quantumwalks_n2_transpiled.qasm:
+  interact_qubit_list:
+  - 1
+  - 1
+  interact_qubit_list_mean: 1.0
+  interact_qubit_list_std: 0.0
+  n_2q_gate_qubit_list:
+  - 3
+  - 3
+  n_2q_gate_qubit_list_mean: 3.0
+  n_2q_gate_qubit_list_std: 0.0
+  num_1q_gates: 35
+  num_2q_gates: 3
+  num_qubits: 2
+shor_n5_transpiled.qasm:
+  interact_qubit_list:
+  - 4
+  - 3
+  - 2
+  - 3
+  - 2
+  interact_qubit_list_mean: 2.8
+  interact_qubit_list_std: 0.7483314773547882
+  n_2q_gate_qubit_list:
+  - 18
+  - 14
+  - 8
+  - 13
+  - 7
+  n_2q_gate_qubit_list_mean: 12.0
+  n_2q_gate_qubit_list_std: 4.049691346263317
+  num_1q_gates: 57
+  num_2q_gates: 30
+  num_qubits: 5
+simon_n6_transpiled.qasm:
+  interact_qubit_list:
+  - 2
+  - 1
+  - 3
+  - 2
+  - 2
+  interact_qubit_list_mean: 2.0
+  interact_qubit_list_std: 0.6324555320336759
+  n_2q_gate_qubit_list:
+  - 2
+  - 1
+  - 9
+  - 8
+  - 8
+  n_2q_gate_qubit_list_mean: 5.6
+  n_2q_gate_qubit_list_std: 3.3823069050575527
+  num_1q_gates: 44
+  num_2q_gates: 14
+  num_qubits: 6
+teleportation_n3_transpiled.qasm:
+  interact_qubit_list:
+  - 1
+  - 2
+  - 1
+  interact_qubit_list_mean: 1.3333333333333333
+  interact_qubit_list_std: 0.4714045207910317
+  n_2q_gate_qubit_list:
+  - 1
+  - 2
+  - 1
+  n_2q_gate_qubit_list_mean: 1.3333333333333333
+  n_2q_gate_qubit_list_std: 0.4714045207910317
+  num_1q_gates: 10
+  num_2q_gates: 2
+  num_qubits: 3
+toffoli_n3_transpiled.qasm:
+  interact_qubit_list:
+  - 2
+  - 2
+  - 2
+  interact_qubit_list_mean: 2.0
+  interact_qubit_list_std: 0.0
+  n_2q_gate_qubit_list:
+  - 4
+  - 4
+  - 4
+  n_2q_gate_qubit_list_mean: 4.0
+  n_2q_gate_qubit_list_std: 0.0
+  num_1q_gates: 15
+  num_2q_gates: 6
+  num_qubits: 3
+variational_n4_transpiled.qasm:
+  interact_qubit_list:
+  - 2
+  - 2
+  - 1
+  - 1
+  interact_qubit_list_mean: 1.5
+  interact_qubit_list_std: 0.5
+  n_2q_gate_qubit_list:
+  - 12
+  - 12
+  - 4
+  - 4
+  n_2q_gate_qubit_list_mean: 8.0
+  n_2q_gate_qubit_list_std: 4.0
+  num_1q_gates: 42
+  num_2q_gates: 16
+  num_qubits: 4
+wstate_n3_transpiled.qasm:
+  interact_qubit_list:
+  - 2
+  - 2
+  - 2
+  interact_qubit_list_mean: 2.0
+  interact_qubit_list_std: 0.0
+  n_2q_gate_qubit_list:
+  - 7
+  - 7
+  - 4
+  n_2q_gate_qubit_list_mean: 6.0
+  n_2q_gate_qubit_list_std: 1.4142135623730951
+  num_1q_gates: 26
+  num_2q_gates: 9
+  num_qubits: 3

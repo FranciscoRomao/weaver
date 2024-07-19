@@ -1,0 +1,8 @@
+backend_params:
+  base_set: default0
+  retranspile_changes:
+    n_aods: [1]
+  nonretranspile_changes:
+    backer_penalty: [0]
+
+count_gates: True

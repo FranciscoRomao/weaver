@@ -1,0 +1,12 @@
+backend_params:
+  base_set: default0
+  nonretranspile_changes:
+    geyser_dump_transpiled_qasm: [False]
+
+benchmarks:
+  - name: arbitrary_designed
+    n_qubits: [100]
+    n_gates: [10]
+    max_distance_2q: [10]
+    n_interact_q: [7]
+    i: 1

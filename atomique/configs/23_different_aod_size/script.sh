@@ -1,0 +1,1 @@
+python run.py configs/23_different_aod_size/default.yml

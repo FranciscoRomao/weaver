@@ -1,0 +1,7 @@
+backend_params:
+  base_set: default0
+  nonretranspile_changes:
+    geyser_dump_transpiled_qasm: [False]
+
+compiler:
+  name: fpqac_generic

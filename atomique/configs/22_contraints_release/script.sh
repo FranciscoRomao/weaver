@@ -1,0 +1,1 @@
+python run.py configs/22_contraints_release/default.yml

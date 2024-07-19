@@ -1,0 +1,16 @@
+ABOUT
+
+Code and Dataset for "Geyser: A Compilation Framework for Quantum Computing with Neutral Atoms" (ISCA'22).
+Changes are made by Daniel Bochen Tan. Run with Qiskit 0.31.0.
+
+INSTRUCTIONS
+
+The 'code' directory contains all of the source code.
+
+The 'qasm' directory contains the 'original' QASM files of the algorithms used in the paper (they have the suffix '_original'). The new QASM files after running the code will also be generated in this directory.
+
+Running 'simulate_algorithm.py' will run all the algorithms in the paper. It will run 'map_circuit.py' and generate the QASM of the mapped circuit in the 'qasm' directory with the suffix '_mapped'. Then, it will run 'block_circuit.py' and generate the QASM of the blocked circuit in the 'qasm' directory with the suffix '_blocked'. Finally, it will run 'compose_circuit.py' and generate the QASM of the final composed circuit in the 'qasm' directory with the suffix '_composed'.
+
+COPYRIGHT STATEMENT
+
+© 2022 Northeastern University subject to Creative Commons Attribution 4.0 International license (Creative Commons — Attribution 4.0 International — CC BY 4.0)

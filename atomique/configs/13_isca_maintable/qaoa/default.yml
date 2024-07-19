@@ -1,0 +1,31 @@
+backend_params:
+  base_set: default0
+  nonretranspile_changes:
+    geyser_dump_transpiled_qasm: [False]
+
+
+benchmarks:
+- name: qaoa_rand
+  p: [0.5]
+  n_qubits: [10]
+  i: 1
+- name: qaoa_rand
+  p: [0.5]
+  n_qubits: [20]
+  i: 1
+- name: qaoa_rand
+  p: [0.5]
+  n_qubits: [30]
+  i: 1
+- name: qaoa_rand
+  p: [0.5]
+  n_qubits: [50]
+  i: 1
+- name: qaoa_regular
+  regular: [5]
+  n_qubits: [40]
+  i: 1
+- name: qaoa_regular
+  regular: [6]
+  n_qubits: [100]
+  i: 1

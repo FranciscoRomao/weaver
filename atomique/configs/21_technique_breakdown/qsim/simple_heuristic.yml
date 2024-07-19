@@ -1,0 +1,13 @@
+backend_params:
+  base_set: default0
+  nonretranspile_changes:
+    n_aods: [1]
+    fpqac_qubit_atom_mapper: ['default']
+    fpqac_router: ['default']
+    fpqac_generic_partition_method: ["dense"]
+    geyser_dump_transpiled_qasm: [False]
+    n_rows: [17]
+    n_cols: [17]
+
+compiler:
+  name: simple_heuristic

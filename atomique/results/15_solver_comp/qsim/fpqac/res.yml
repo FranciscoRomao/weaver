@@ -1,0 +1,468 @@
+- benchmark: benchmarks/qsim/rand/q5_10_p0.5/i0.txt
+  circ_stats:
+    avg_move_distance: 0.00018031222911241347
+    avg_move_speed: 0.030052038185402245
+    compilation_time: 0.4364285469055176
+    depth: 20
+    each_move_distance_mean: 0.6010407640085654
+    each_move_distance_std: 1.0902981243678262
+    max_ancilla: 2
+    n_1q_gate: 33
+    n_2q_gate: 22
+    n_2q_layer: 20
+    n_cooling: 0
+    n_move: 20
+    n_transfer: 0
+  fidelity:
+    1q_decoherence: 0.9999941666836794
+    1q_gate: 0.997363376408204
+    1q_total: 0.9973575584721428
+    2q_decoherence: 0.9999964533396234
+    2q_gate: 0.9464199706886212
+    2q_total: 0.9464166140584115
+    additional_2Q_by_cooling: 1.0
+    additional_2Q_error_by_heating: 0.9996025910365595
+    move_total: 0.9968076185691603
+    movement_atomloss: 1.0
+    movement_decoherence: 0.9972039163438934
+    total_fidelity: 0.940902424339112
+    transfer: 1.0
+    transfer_decoherence: 1.0
+    transfer_total: 1.0
+  hyperparams:
+    T_per_move: 0.0003
+    atom_distance: 1.4999999999999999e-05
+    atom_loss_prob: 0.0068
+    atom_transfer_time: 1.4999999999999999e-05
+    base_set: default0
+    configs:
+      backend_params:
+        base_set: default0
+        nonretranspile_changes:
+          backer_penalty:
+          - 0
+          geyser_dump_transpiled_qasm:
+          - false
+        retranspile_changes:
+          n_aods:
+          - 1
+      benchmarks:
+      - i: 1
+        keep_length:
+        - 10
+        n_qubits:
+        - 5
+        name: qsim_rand
+        p:
+        - 0.5
+      - i: 1
+        keep_length:
+        - 10
+        n_qubits:
+        - 10
+        name: qsim_rand
+        p:
+        - 0.5
+      - name: qsim_molecule
+        type:
+        - H2
+      compiler:
+        name: fpqac_generic
+        print_log: false
+      count_gates: true
+      result_path: results/15_solver_comp/qsim/fpqac
+    cooling_deltaN_thres: 15
+    dump_full_report: false
+    faa_cmap_bidirect: true
+    faa_seed_transpiler: 0
+    flying_1gate_per_stage_for_QAOA: false
+    flying_QSIM_max_ancilla: 9999
+    flying_search_method: DP
+    flying_square_mapping: true
+    fpqac_allow_order_violation: false
+    fpqac_allow_overlap_violation: false
+    fpqac_generic_cmap_bidirect: true
+    fpqac_generic_n_cols_cmap: &id001
+    - 10
+    - 10
+    - 10
+    fpqac_generic_n_rows_cmap: &id002
+    - 10
+    - 10
+    - 10
+    fpqac_generic_partition_factor: 0.9
+    fpqac_generic_partition_method: heuristic
+    fpqac_generic_seed_transpiler: 0
+    fpqac_individual_addressable: false
+    fpqac_qubit_array_mapper: default
+    fpqac_qubit_atom_mapper: default
+    fpqac_router: default
+    full_report_path: null
+    geyser_dump_transpiled_qasm: false
+    geyser_generic_seed_transpiler: 5
+    geyser_use_blocking: false
+    lambd: 0.109375
+    log_path: null
+    n_aods: 1
+    n_atoms_per_array:
+    - 100
+    - 100
+    - 100
+    n_cols: *id001
+    n_rows: *id002
+    na_1Q_fidelity: 0.99992
+    na_1Q_time: 6.25e-07
+    na_2Q_fidelity: 0.9975
+    na_2Q_fidelity_long_range: 0.9975
+    na_2Q_time: 3.8e-07
+    na_N_max: 33
+    na_T1: 15.0
+    na_simultaneous_1q_gate: 10000000000.0
+    omega_0: 502654.8245743669
+    retranspile: true
+    sc_1Q_fidelity: 0.99992
+    sc_1Q_time: 3.5200000000000004e-08
+    sc_2Q_fidelity: 0.9975
+    sc_2Q_time: 4.800000000000001e-07
+    sc_T1: null
+    sc_T2: 0.0008012
+    sc_seed_transpiler: 0
+    sc_simultaneous_1q_gate: 10000000000.0
+    two_q_error_delta_N: 0.00027343749999999417
+    x_zpf: 3.8e-08
+  others:
+    original_n_2q_gates: 16
+    total_overlap: 0
+  params:
+    T_per_move: 0.0003
+    atom_distance: 1.4999999999999999e-05
+    cooling_deltaN_thres: 15
+    flying_1gate_per_stage_for_QAOA: false
+    flying_QSIM_max_ancilla: 9999
+    flying_search_method: DP
+    flying_square_mapping: true
+    n_aods: 1
+    n_cols: *id001
+    n_rows: *id002
+    na_1Q_fidelity: 0.99992
+    na_2Q_fidelity: 0.9975
+    na_N_max: 33
+  path: benchmarks/qsim/rand/q5_10_p0.5/i0.txt
+  time:
+    1q_gate: 1.25e-05
+    2q_gate: 7.599999999999998e-06
+    movement: 0.005999999999999999
+    total_time: 0.0060201
+    transfer: 0.0
+- benchmark: benchmarks/qsim/rand/q10_10_p0.5/i0.txt
+  circ_stats:
+    avg_move_distance: 0.0018243354952608153
+    avg_move_speed: 0.06682547601687969
+    compilation_time: 0.8176016807556152
+    depth: 91
+    each_move_distance_mean: 1.3365095204844635
+    each_move_distance_std: 2.3876603168863606
+    max_ancilla: 3
+    n_1q_gate: 97
+    n_2q_gate: 99
+    n_2q_layer: 91
+    n_cooling: 0
+    n_move: 91
+    n_transfer: 0
+  fidelity:
+    1q_decoherence: 0.999963833987338
+    1q_gate: 0.9922697230524313
+    1q_total: 0.9922338366130633
+    2q_decoherence: 0.9999677258541573
+    2q_gate: 0.7805083103656366
+    2q_total: 0.7804831201265964
+    additional_2Q_by_cooling: 1.0
+    additional_2Q_error_by_heating: 0.9586476005491803
+    move_total: 0.9345298249667437
+    movement_atomloss: 1.0
+    movement_decoherence: 0.9748418756082838
+    total_fidelity: 0.7237202324726866
+    transfer: 1.0
+    transfer_decoherence: 1.0
+    transfer_total: 1.0
+  hyperparams:
+    T_per_move: 0.0003
+    atom_distance: 1.4999999999999999e-05
+    atom_loss_prob: 0.0068
+    atom_transfer_time: 1.4999999999999999e-05
+    base_set: default0
+    configs:
+      backend_params:
+        base_set: default0
+        nonretranspile_changes:
+          backer_penalty:
+          - 0
+          geyser_dump_transpiled_qasm:
+          - false
+        retranspile_changes:
+          n_aods:
+          - 1
+      benchmarks:
+      - i: 1
+        keep_length:
+        - 10
+        n_qubits:
+        - 5
+        name: qsim_rand
+        p:
+        - 0.5
+      - i: 1
+        keep_length:
+        - 10
+        n_qubits:
+        - 10
+        name: qsim_rand
+        p:
+        - 0.5
+      - name: qsim_molecule
+        type:
+        - H2
+      compiler:
+        name: fpqac_generic
+        print_log: false
+      count_gates: true
+      result_path: results/15_solver_comp/qsim/fpqac
+    cooling_deltaN_thres: 15
+    dump_full_report: false
+    faa_cmap_bidirect: true
+    faa_seed_transpiler: 0
+    flying_1gate_per_stage_for_QAOA: false
+    flying_QSIM_max_ancilla: 9999
+    flying_search_method: DP
+    flying_square_mapping: true
+    fpqac_allow_order_violation: false
+    fpqac_allow_overlap_violation: false
+    fpqac_generic_cmap_bidirect: true
+    fpqac_generic_n_cols_cmap: &id003
+    - 10
+    - 10
+    - 10
+    fpqac_generic_n_rows_cmap: &id004
+    - 10
+    - 10
+    - 10
+    fpqac_generic_partition_factor: 0.9
+    fpqac_generic_partition_method: heuristic
+    fpqac_generic_seed_transpiler: 0
+    fpqac_individual_addressable: false
+    fpqac_qubit_array_mapper: default
+    fpqac_qubit_atom_mapper: default
+    fpqac_router: default
+    full_report_path: null
+    geyser_dump_transpiled_qasm: false
+    geyser_generic_seed_transpiler: 5
+    geyser_use_blocking: false
+    lambd: 0.109375
+    log_path: null
+    n_aods: 1
+    n_atoms_per_array:
+    - 100
+    - 100
+    - 100
+    n_cols: *id003
+    n_rows: *id004
+    na_1Q_fidelity: 0.99992
+    na_1Q_time: 6.25e-07
+    na_2Q_fidelity: 0.9975
+    na_2Q_fidelity_long_range: 0.9975
+    na_2Q_time: 3.8e-07
+    na_N_max: 33
+    na_T1: 15.0
+    na_simultaneous_1q_gate: 10000000000.0
+    omega_0: 502654.8245743669
+    retranspile: true
+    sc_1Q_fidelity: 0.99992
+    sc_1Q_time: 3.5200000000000004e-08
+    sc_2Q_fidelity: 0.9975
+    sc_2Q_time: 4.800000000000001e-07
+    sc_T1: null
+    sc_T2: 0.0008012
+    sc_seed_transpiler: 0
+    sc_simultaneous_1q_gate: 10000000000.0
+    two_q_error_delta_N: 0.00027343749999999417
+    x_zpf: 3.8e-08
+  others:
+    original_n_2q_gates: 76
+    total_overlap: 0
+  params:
+    T_per_move: 0.0003
+    atom_distance: 1.4999999999999999e-05
+    cooling_deltaN_thres: 15
+    flying_1gate_per_stage_for_QAOA: false
+    flying_QSIM_max_ancilla: 9999
+    flying_search_method: DP
+    flying_square_mapping: true
+    n_aods: 1
+    n_cols: *id003
+    n_rows: *id004
+    na_1Q_fidelity: 0.99992
+    na_2Q_fidelity: 0.9975
+    na_N_max: 33
+  path: benchmarks/qsim/rand/q10_10_p0.5/i0.txt
+  time:
+    1q_gate: 3.875000000000006e-05
+    2q_gate: 3.4579999999999984e-05
+    movement: 0.02730000000000006
+    total_time: 0.02737333000000006
+    transfer: 0.0
+- benchmark: benchmarks/qsim/molecule/H2.txt
+  circ_stats:
+    avg_move_distance: 0.00027152900391660614
+    avg_move_speed: 0.01967601477656566
+    compilation_time: 0.5612781047821045
+    depth: 46
+    each_move_distance_mean: 0.3935202956168612
+    each_move_distance_std: 1.0802226193578806
+    max_ancilla: 5
+    n_1q_gate: 63
+    n_2q_gate: 50
+    n_2q_layer: 46
+    n_cooling: 0
+    n_move: 46
+    n_transfer: 0
+  fidelity:
+    1q_decoherence: 0.9999825834850039
+    1q_gate: 0.9949724788923447
+    1q_total: 0.9949551499392454
+    2q_decoherence: 0.9999871814154899
+    2q_gate: 0.8823587930030069
+    2q_total: 0.8823474824122506
+    additional_2Q_by_cooling: 1.0
+    additional_2Q_error_by_heating: 0.9962899909057009
+    move_total: 0.9862583817549945
+    movement_atomloss: 1.0
+    movement_decoherence: 0.9899310348971919
+    total_fidelity: 0.8658324576122653
+    transfer: 1.0
+    transfer_decoherence: 1.0
+    transfer_total: 1.0
+  hyperparams:
+    T_per_move: 0.0003
+    atom_distance: 1.4999999999999999e-05
+    atom_loss_prob: 0.0068
+    atom_transfer_time: 1.4999999999999999e-05
+    base_set: default0
+    configs:
+      backend_params:
+        base_set: default0
+        nonretranspile_changes:
+          backer_penalty:
+          - 0
+          geyser_dump_transpiled_qasm:
+          - false
+        retranspile_changes:
+          n_aods:
+          - 1
+      benchmarks:
+      - i: 1
+        keep_length:
+        - 10
+        n_qubits:
+        - 5
+        name: qsim_rand
+        p:
+        - 0.5
+      - i: 1
+        keep_length:
+        - 10
+        n_qubits:
+        - 10
+        name: qsim_rand
+        p:
+        - 0.5
+      - name: qsim_molecule
+        type:
+        - H2
+      compiler:
+        name: fpqac_generic
+        print_log: false
+      count_gates: true
+      result_path: results/15_solver_comp/qsim/fpqac
+    cooling_deltaN_thres: 15
+    dump_full_report: false
+    faa_cmap_bidirect: true
+    faa_seed_transpiler: 0
+    flying_1gate_per_stage_for_QAOA: false
+    flying_QSIM_max_ancilla: 9999
+    flying_search_method: DP
+    flying_square_mapping: true
+    fpqac_allow_order_violation: false
+    fpqac_allow_overlap_violation: false
+    fpqac_generic_cmap_bidirect: true
+    fpqac_generic_n_cols_cmap: &id005
+    - 10
+    - 10
+    - 10
+    fpqac_generic_n_rows_cmap: &id006
+    - 10
+    - 10
+    - 10
+    fpqac_generic_partition_factor: 0.9
+    fpqac_generic_partition_method: heuristic
+    fpqac_generic_seed_transpiler: 0
+    fpqac_individual_addressable: false
+    fpqac_qubit_array_mapper: default
+    fpqac_qubit_atom_mapper: default
+    fpqac_router: default
+    full_report_path: null
+    geyser_dump_transpiled_qasm: false
+    geyser_generic_seed_transpiler: 5
+    geyser_use_blocking: false
+    lambd: 0.109375
+    log_path: null
+    n_aods: 1
+    n_atoms_per_array:
+    - 100
+    - 100
+    - 100
+    n_cols: *id005
+    n_rows: *id006
+    na_1Q_fidelity: 0.99992
+    na_1Q_time: 6.25e-07
+    na_2Q_fidelity: 0.9975
+    na_2Q_fidelity_long_range: 0.9975
+    na_2Q_time: 3.8e-07
+    na_N_max: 33
+    na_T1: 15.0
+    na_simultaneous_1q_gate: 10000000000.0
+    omega_0: 502654.8245743669
+    retranspile: true
+    sc_1Q_fidelity: 0.99992
+    sc_1Q_time: 3.5200000000000004e-08
+    sc_2Q_fidelity: 0.9975
+    sc_2Q_time: 4.800000000000001e-07
+    sc_T1: null
+    sc_T2: 0.0008012
+    sc_seed_transpiler: 0
+    sc_simultaneous_1q_gate: 10000000000.0
+    two_q_error_delta_N: 0.00027343749999999417
+    x_zpf: 3.8e-08
+  others:
+    original_n_2q_gates: 34
+    total_overlap: 0
+  params:
+    T_per_move: 0.0003
+    atom_distance: 1.4999999999999999e-05
+    cooling_deltaN_thres: 15
+    flying_1gate_per_stage_for_QAOA: false
+    flying_QSIM_max_ancilla: 9999
+    flying_search_method: DP
+    flying_square_mapping: true
+    n_aods: 1
+    n_cols: *id005
+    n_rows: *id006
+    na_1Q_fidelity: 0.99992
+    na_2Q_fidelity: 0.9975
+    na_N_max: 33
+  path: benchmarks/qsim/molecule/H2.txt
+  time:
+    1q_gate: 2.375000000000002e-05
+    2q_gate: 1.7479999999999992e-05
+    movement: 0.013799999999999998
+    total_time: 0.013841229999999998
+    transfer: 0.0

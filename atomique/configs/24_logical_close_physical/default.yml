@@ -1,0 +1,26 @@
+count_gates: True
+compiler:
+  name: fpqac_generic
+backend_params:
+  base_set: default0
+  binding_params: ["n_rows", "n_cols"]
+
+  nonretranspile_changes:
+    geyser_dump_transpiled_qasm: [False]
+  retranspile_changes:
+    n_rows: [[6,6,6],[8,8,8],[10,10,10]]
+    n_cols: [[6,6,6],[8,8,8],[10,10,10]]
+
+benchmarks:
+- name: qaoa_rand
+  p: [0.5]
+  n_qubits: [100]
+  i: 1
+- name: qsim_rand
+  p: [0.5]
+  keep_length: [10]
+  n_qubits: [100]
+  i: 1
+- name: supermarq
+  type: ['phase_code']
+  n_qubits: [50]

@@ -1,0 +1,14 @@
+benchmarks:
+- name: qsim_rand
+  p: [0.5]
+  keep_length: [10]
+  n_qubits: [20]
+  i: 1
+- name: qsim_rand
+  p: [0.5]
+  keep_length: [10]
+  n_qubits: [40]
+  i: 1
+- name: qsim_molecule
+  type: ['H2', 'LiH']
+  

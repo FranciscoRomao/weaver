@@ -1,0 +1,4 @@
+count_gates: True
+backend_params:
+  nonretranspile_changes:
+    backer_penalty: [0]

@@ -1,0 +1,1 @@
+{"name": "benchmarks_qsim_rand_q5_10_p0.3_i1", "layers": [], "sat": false, "n_t": 0, "n_q": 5, "all_commutable": false, "all_aod": false, "no_transfer": true, "n_c": 10, "n_r": 10, "n_x": 10, "n_y": 10, "row_per_site": 3, "n_g": 0, "g_q": [], "g_s": [], "timestamp": "1694855249.2597954", "duration": "0.14652109146118164"}

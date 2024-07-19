@@ -1,0 +1,11 @@
+compiler:
+  name : 'faa'
+
+backend_params:
+  base_set: default0
+
+benchmarks:
+  - name: qaoa_regular
+    n_qubits: [10,20,40,60,80,100]
+    regular: [1,2,3,4,5,6,7]
+    i: 3

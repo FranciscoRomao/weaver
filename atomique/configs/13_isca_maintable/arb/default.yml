@@ -1,0 +1,21 @@
+backend_params:
+  base_set: default0
+  nonretranspile_changes:
+    geyser_dump_transpiled_qasm: [False]
+
+benchmarks:
+- name: algorithm
+  type: ['hhl']
+  n_qubits: [7]
+- name: supermarq
+  type: ['mermin_bell']
+  n_qubits: [10]
+- name: QASMBench
+  type: ['QV']
+  n_qubits: [32]
+- name: QASMBench
+  type: ['bv']
+  n_qubits: [50]
+- name: algorithm
+  type: ['bv']
+  n_qubits: [70]

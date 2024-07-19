@@ -1,0 +1,1 @@
+python run.py configs/tab3_geyser/fpqac.yml

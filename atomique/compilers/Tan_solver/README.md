@@ -1,0 +1,2 @@
+This directory is adapted from OLSQ-DPQA ([paper](https://arxiv.org/abs/2306.03487), [code](https://github.com/UCLA-VAST/DPQA)).
+We used the optimal setting in this software, which, in turn, is adapted from OLSQ-RAA ([paper](https://dl.acm.org/doi/abs/10.1145/3508352.3549331), [code](https://github.com/UCLA-VAST/OLSQ/tree/RAA)).
