@@ -1,9 +1,18 @@
 geyser:
   run:  
     iterations: 3
-    instante_type: generated #generated (independent) or stored (dependent)
+    instante_type: stored #generated (independent) or stored (dependent)
     instance_clauses: [1] #uniform independent clauses
-    instances_names: ['uf20-01.cnf']
+    instances_names: ['uf20-010.cnf,
+                       uf20-08.cnf,
+                       uf20-01.cnf,
+                       uf20-09.cnf,
+                       uf20-02.cnf,
+                       uf20-03.cnf,
+                       uf20-04.cnf,
+                       uf20-05.cnf,
+                       uf20-06.cnf,
+                       uf20-07.cnf']
     qaoa_depth: 1
 
 atomique:

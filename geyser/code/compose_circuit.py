@@ -180,9 +180,7 @@ class ComposeCircuit:
             if res.fun < distance:
                 distance = res.fun
                 params = res.x
-        
-        pdb.set_trace()
-        
+                
         print("Composed block, distance: ", distance)
 
         index = 0
@@ -204,7 +202,7 @@ class ComposeCircuit:
         return comp_block, n_pulse, distance
 
     def generate_composed_circuit(self, circuit):
-        #pool = multiprocessing.Pool()
+        pool = multiprocessing.Pool()
 
         dag = circuit_to_dag(circuit)
 
@@ -224,10 +222,10 @@ class ComposeCircuit:
                         block.append(node.op, list(range(len(qubits))))
                         original_blocks.append(block)
         
-        #composed_blocks_and_pulse = pool.map(self.compose_block, original_blocks)
-        composed_blocks_and_pulse = []
-        for i in original_blocks:
-            composed_blocks_and_pulse.append(self.compose_block(i))
+        composed_blocks_and_pulse = pool.map(self.compose_block, original_blocks)
+        #composed_blocks_and_pulse = []
+        #for i in original_blocks:
+        #    composed_blocks_and_pulse.append(self.compose_block(i))
     
         print(composed_blocks_and_pulse)
         composed_blocks = [block for block, _, _ in composed_blocks_and_pulse]
