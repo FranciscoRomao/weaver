@@ -161,7 +161,7 @@ class ComposeCircuit:
 		distance = 1
 		params = None
 
-		while distance > 1e-1:
+		while distance > 0.2: #0.1
 
 			if block.num_qubits > 1:
 				bounds += [(0, block.num_qubits-1e-5)]

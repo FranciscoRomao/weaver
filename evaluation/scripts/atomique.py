@@ -68,8 +68,7 @@ def run(config):
     for i,type in zip(all_res,all_res[0]['hyperparams']['configs']['benchmarks'][0]['type']):
         data.loc[len(data)] = [type[0], all_res[0]['hyperparams']['configs']['benchmarks'][0]['n_qubits'][0], type[1], i['fidelity']['total_fidelity'], i['circ_stats']['compilation_time'], i['circ_stats']['n_1q_gate'], i['circ_stats']['n_2q_gate'], i['time']['total_time']]
 
-    data.to_csv(f"{hyperparam_sets.configs.result_path}/res_out.csv")
-
+    data.to_csv(f"{hyperparam_sets.configs.result_path}/atomique_results.csv")
 
 def plot():
     pass

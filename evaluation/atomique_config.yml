@@ -26,7 +26,6 @@ backend_params:
 #    "TRAP_TRANSFER_PROXIMITY": 1e-05, # in micrometers
 #    "AOD_BEAM_RPOXIMITY": 1e-03 # in micrometers
 
-
 benchmarks:
 - name: QASMBench
   type: ['a1', 'b1', 'c1', 'd1', 'e1']

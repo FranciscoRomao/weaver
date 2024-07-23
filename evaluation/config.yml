@@ -1,9 +1,9 @@
 geyser:
   run:  
-    iterations: 10
-    instante_type: stored #generated (independent) or stored (dependent)
-    instance_clauses: [1,2,3,4,5,6,7,8,9,10] #uniform independent clauses
-    instances_names: ['uuf50-01.cnf', 'uuf50-02.cnf', 'uuf50-03.cnf', 'uuf50-04.cnf', 'uuf50-05.cnf']
+    iterations: 3
+    instante_type: generated #generated (independent) or stored (dependent)
+    instance_clauses: [1] #uniform independent clauses
+    instances_names: ['uf20-01.cnf']
     qaoa_depth: 1
 
 atomique:
@@ -11,8 +11,15 @@ atomique:
     instances_names: ['uf20-01.cnf', 'uf20-02.cnf', 'uf20-03.cnf', 'uf20-04.cnf', 'uf20-05.cnf']
     qaoa_depth: 1
 
-instances_to_qasm:
+superconducting:
   run:  
+    instances_names: ['uf20-01.cnf', 'uf20-02.cnf', 'uf20-03.cnf', 'uf20-04.cnf', 'uf20-05.cnf']
+    qaoa_depth: 1
+
+instances_to_qasm:
+  run:
+    instance_type: generated #generated (independent) or stored (dependent)
+    instance_clauses: [1] #uniform independent clauses
     instances_names: ['uuf100-01.cnf',
                       'uuf100-02.cnf',
                       'uuf100-03.cnf',
@@ -23,4 +30,13 @@ instances_to_qasm:
                       'uuf250-03.cnf',
                       'uuf250-04.cnf',
                       'uuf250-05.cnf']
-    qaoa_depth: 3
+    qaoa_depth: 1
+
+
+plot_execution_time:
+  plot:
+    plot_property: execution_time
+    geyser_input: evaluation/results/geyser_results.csv
+    atomique_input: evaluation/results/atomique_results.csv
+    superconducting_input: evaluation/results/superconducting_results.csv
+    output_file: evaluation/results/execution_time.pdf

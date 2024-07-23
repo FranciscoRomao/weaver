@@ -5,7 +5,7 @@ import pdb
 import evaluation.scripts.geyser as geyser
 import evaluation.scripts.instances_to_qasm as instances_to_qasm
 import evaluation.scripts.atomique as atomique
-import evaluation.scripts.plot_fidelities as plot_fidelities
+import evaluation.scripts.plot as plot
 #import .qcomp.evaluation.scripts.optimization_fidelity as optimization_fidelity
 #import scripts.mapping_similarity as mapping_similarity
 #import scripts.qubits_use_frequency as qubits_use_frequency
@@ -42,16 +42,21 @@ def main():
             geyser.run(config[evaluation_script][action])
         elif action == 'plot':
             geyser.plot(config[evaluation_script][action])
+    elif evaluation_script == 'superconducting':
+        if action == 'run':
+            geyser.run(config[evaluation_script][action])
+        elif action == 'plot':
+            geyser.plot(config[evaluation_script][action])
     elif evaluation_script == 'instances_to_qasm':
         if action == 'run':
             instances_to_qasm.run(config[evaluation_script][action])
         elif action == 'plot':
             instances_to_qasm.plot(config[evaluation_script][action])
-    elif evaluation_script == 'plot_fidelities':
+    elif evaluation_script == 'plot_execution_time':
         if action == 'run':
-            plot_fidelities.run(config[evaluation_script][action])
+            plot.run(config[evaluation_script][action])
         elif action == 'plot':
-            plot_fidelities.plot(config[evaluation_script][action])
+            plot.plot(config[evaluation_script][action])
     else:
         print("Invalid evaluation script.")
         sys.exit(1)

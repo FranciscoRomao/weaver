@@ -58,7 +58,7 @@ class ComposeCircuit:
 
         self.pulses = {"u3": 0, "cz": 3, "ccz": 5, "cccz": 7}
 
-        self.circuit, self.n_pulses = self.generate_composed_circuit(circuit)
+        self.circuit, self.n_pulses, self.distances = self.generate_composed_circuit(circuit)
 
     def get_circuit_pulses(self, circuit):
         dag = circuit_to_dag(circuit)
@@ -118,6 +118,7 @@ class ComposeCircuit:
                 index += 1
 
         real_unitary = qi.Operator(circuit).data
+
         #real_unitary = execute(circuit, Aer.get_backend('unitary_simulator')).result().get_unitary(circuit)
 
         # real_unitary = execute(circuit, Aer.get_backend('unitary_simulator')).result().get_unitary(circuit)
@@ -161,7 +162,7 @@ class ComposeCircuit:
             comp_pulses += block.num_qubits
 
             if comp_pulses > original_pulses:
-                return ret_block, original_pulses
+                return ret_block, original_pulses, distance
             print("Composing block, distance: ", distance)
             res = dual_annealing(
                 self.score,
@@ -179,6 +180,8 @@ class ComposeCircuit:
             if res.fun < distance:
                 distance = res.fun
                 params = res.x
+        
+        pdb.set_trace()
         
         print("Composed block, distance: ", distance)
 
@@ -198,10 +201,10 @@ class ComposeCircuit:
                 )
                 index += 1
         n_pulse = self.get_circuit_pulses(comp_block)
-        return comp_block, n_pulse
+        return comp_block, n_pulse, distance
 
     def generate_composed_circuit(self, circuit):
-        pool = multiprocessing.Pool()
+        #pool = multiprocessing.Pool()
 
         dag = circuit_to_dag(circuit)
 
@@ -221,21 +224,21 @@ class ComposeCircuit:
                         block.append(node.op, list(range(len(qubits))))
                         original_blocks.append(block)
         
-        composed_blocks_and_pulse = pool.map(self.compose_block, original_blocks)
-        #composed_blocks_and_pulse = []
-        #for i in original_blocks:
-        #    pdb.set_trace()
-        #    composed_blocks_and_pulse.append(self.compose_block(i))
-
-        # print(composed_blocks_and_pulse)
-        composed_blocks = [block for block, _ in composed_blocks_and_pulse]
-        pulses = [pulse for _, pulse in composed_blocks_and_pulse]
+        #composed_blocks_and_pulse = pool.map(self.compose_block, original_blocks)
+        composed_blocks_and_pulse = []
+        for i in original_blocks:
+            composed_blocks_and_pulse.append(self.compose_block(i))
+    
+        print(composed_blocks_and_pulse)
+        composed_blocks = [block for block, _, _ in composed_blocks_and_pulse]
+        pulses = [pulse for _, pulse, _ in composed_blocks_and_pulse]
         pulses = sum(pulses)
+        distances = [distance for _, _, distance in composed_blocks_and_pulse]
         composed_circuit = QuantumCircuit(self.num_qubits)
         for qubits, block in zip(original_qubits, composed_blocks):
             composed_block = block.to_instruction()
             composed_circuit.append(composed_block, qubits)
-        return composed_circuit, pulses
+        return composed_circuit, pulses, distances
 
     def get_composed_circuit(self):
         return self.circuit

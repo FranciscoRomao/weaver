@@ -23,41 +23,13 @@ from geyser.code.map_circuit import MapCircuit
 from geyser.code.block_circuit import BlockCircuit
 from geyser.code.compose_circuit import ComposeCircuit
 from qiskit.dagcircuit import DAGCircuit, DAGOpNode
+from utils.base_estimator import BaseEstimator
 from qiskit.converters import circuit_to_dag
 
 gate_time_1q = 5.0e-07
 gate_time_1qplus = 2.0e-07
 
-def run_geyser(circuit, iterations):
-    layout = None
-    blocks = None
-    min_num_blocks = float('inf')
-
-    circuits = {}
-    circuits['Original'] = circuit
-    
-    for i in range(iterations):
-        print(f"Geyser mapping and blocking iteration {i+1}")
-        mapper = MapCircuit(circuits['Original'])
-        layout = mapper.get_layout()
-        blocks = mapper.get_blocks()
-        mapped = mapper.get_mapped_circuit()
-        blocker = BlockCircuit(layout, blocks, mapped)
-        num_blocks, blocked = blocker.get_blocked_circuit()
-
-        if num_blocks < min_num_blocks:
-            circuits['Mapped'] = mapped
-            circuits['Blocked'] = blocked
-            min_num_blocks = num_blocks
-
-    composer = ComposeCircuit("blabla", layout, circuits['Blocked'])
-    print("Circuit composed.")
-    return (composer.get_composed_circuit(), composer.n_pulses, composer.pulses, composer.distances)
-
 def compute_execution_time(circuit):
-    
-    basis_gates = ["u3", "cz", "ccz", "cccz"]
-    circuit = transpile(circuit, basis_gates=basis_gates, optimization_level=0)
     dag = circuit_to_dag(circuit)
 
     path = dag.longest_path()
@@ -75,7 +47,6 @@ def run(config):
 
     basis_gates = ["rx", "rz", "x", "y", "z", "h", "id", "cz"]
     qaoa_depth = int(config['qaoa_depth'])
-    geyset_iterations = int(config['iterations'])
     instance_type = config['instante_type']
     qaoas_instances = []
 
@@ -111,16 +82,19 @@ def run(config):
             bound_circuit.measure_all()
             transpiled_circuits.append(transpile(bound_circuit, basis_gates=basis_gates, optimization_level=3))
     
-    results = pd.DataFrame(columns=['instance_type', 'instance_info', 'qaoa_depth', 'geyser_iterations', 'runtime', 'execution_time', 'n_pulses', 'optimized_circuit'])
+    results = pd.DataFrame(columns=['instance_type', 'instance_info', 'qaoa_depth', 'runtime', 'execution_time', 'n_pulses', 'optimized_circuit'])
     
+    basis_gates = ["u3", "id", "cz", "ccz", "cccz"]
+
     for circuit, instance_info in zip(transpiled_circuits, instance_clauses if instance_type == 'generated' else instances_names):
         tmp = perf_counter()
-        geyser_opt_circuit, n_pulses, pulses, distances = run_geyser(circuit, geyset_iterations)
+        circuit = transpile(circuit, basis_gates=basis_gates, optimization_level=3)
         tmp = perf_counter()-tmp
-        exec_time = compute_execution_time(geyser_opt_circuit)
-        results.loc[len(results)] = [instance_type, instance_info, qaoa_depth, geyset_iterations, tmp, exec_time, n_pulses, pickle.dumps(geyser_opt_circuit.qasm())]
+        exec_time = BaseEstimator().estimate_execution_time(circuit)
+        #exec_time = compute_execution_time(circuit)
+        results.loc[len(results)] = [instance_type, instance_info, qaoa_depth, tmp, exec_time, pickle.dumps(circuit.qasm())]
     
-    results.to_csv('./evaluation/results/geyser_results.csv')
+    results.to_csv('./evaluation/results/superconducting_results.csv')
     
 def plot(config):
     pass
