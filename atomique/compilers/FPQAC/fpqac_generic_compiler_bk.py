@@ -28,7 +28,7 @@ class FPQACGenericCompiler(object):
         self.last_transpiled_circ = None
 
     def run(self, benchmark_sets, hyperparam_sets):
-        pdb.set_trace()
+        #pdb.set_trace()
         res_list = []
         for benchmark in benchmark_sets.all_benchmarks:
             for hyperparams in hyperparam_sets.all_sets:

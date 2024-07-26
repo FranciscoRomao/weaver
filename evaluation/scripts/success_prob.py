@@ -50,7 +50,7 @@ def run(config):
                     best_fid = fid
             
             fids.append([nq, circ, best_fid])
-    pdb.set_trace()
+    #pdb.set_trace()
 
     data = pd.DataFrame(fids, columns=['nqubits', 'benchmark','fid'])
     data.to_csv('success_prob.csv')

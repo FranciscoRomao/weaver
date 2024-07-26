@@ -1081,7 +1081,7 @@ def custom_custom_plot_small_circuit_relative_properties_barplot(dataframes: lis
 
 	#[ax.get_legend().remove() for ax in axis]
  
-	pdb.set_trace()
+	#pdb.set_trace()
 
 	df[df.loc[((df['method'] == 'FrozenQubits') & (df['bench_name'] != 'qaoa_r3') & (df['bench_name'] != 'qaoa_pl1'))]]['depth'] = 0
 
