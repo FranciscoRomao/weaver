@@ -16,7 +16,7 @@ from utils import count_1q_2q_gates, get_n2q_interation_stats
 def worker(args):
     configs, benchmark_sets, hyperparam_sets, result_path = args
     printing = False
-    pdb.set_trace()
+    #pdb.set_trace()
     if configs.compiler.name == "fpqac_generic":
         from compilers.FPQAC.fpqac_generic_compiler import FPQACGenericCompiler
 
@@ -59,12 +59,12 @@ def worker(args):
 
 
 def main(args_config, args_pdb, opts, printing=True, multiprocessing=False):
-    pdb.set_trace()
+    #pdb.set_trace()
     configs.load(args_config, recursive=True)
     configs.update(opts)
 
-    if args_pdb:
-        pdb.set_trace()
+    #if args_pdb:
+    #    pdb.set_trace()
 
     result_path = args_config.replace("configs", "results").replace(".yml", "")
     configs.result_path = result_path
@@ -88,7 +88,7 @@ def main(args_config, args_pdb, opts, printing=True, multiprocessing=False):
     if printing:
         print("Start Compiling...")
 
-    pdb.set_trace()
+    #pdb.set_trace()
 
     if multiprocessing:
         args = []

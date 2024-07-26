@@ -208,7 +208,7 @@ class ComposeCircuit:
                     block.append(node.op, list(range(len(qubits))))
                     original_blocks.append(block)
 
-        pdb.set_trace()
+        #pdb.set_trace()
 
         composed_blocks = pool.map(self.compose_block, original_blocks)
 

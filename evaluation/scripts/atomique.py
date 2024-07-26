@@ -47,7 +47,7 @@ def run(config):
     def numpy_array_representer(dumper, data):
         return dumper.represent_list(data.tolist())
     
-    pdb.set_trace()
+    #pdb.set_trace()
 
     #yaml.add_representer(np.ndarray, numpy_array_representer)
     #yaml.dump(all_res, open(f"{hyperparam_sets.configs.result_path}/res_{file_name}.yml", "w"))

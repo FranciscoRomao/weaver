@@ -66,7 +66,7 @@ def qaoa_maxcut_gen(n_nodes: int, degree: int) -> QuantumCircuit:
 
     #random graph
     graph = nx.random_regular_graph(degree, n_nodes)
-    pdb.set_trace()
+    #pdb.set_trace()
 
     maxcut = Maxcut(graph)
     cubo = maxcut.to_quadratic_program()

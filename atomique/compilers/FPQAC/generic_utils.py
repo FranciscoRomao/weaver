@@ -1383,7 +1383,7 @@ def print_latex2(res):
 if __name__ == "__main__":
     import pdb
 
-    pdb.set_trace()
+    #pdb.set_trace()
     n_rows = n_cols = 6
     n_aods = 2
     n_qubits = 100

@@ -28,7 +28,7 @@ def hs_distance(A, B):
 
 
 def main():
-    pdb.set_trace()
+    #pdb.set_trace()
     for i in range(len(ALGORITHMS)):
         algo = ALGORITHMS[i]
 
@@ -79,7 +79,7 @@ def main():
             f.write(circuits["Composed"].qasm())
 
         print("Circuit Composed")
-        pdb.set_trace()
+        #pdb.set_trace()
         n_pulse = composer.get_n_pulses()
         print("Number of pulses:", n_pulse)
         with open("../qasm/" + algo + "_result.txt", "w") as f:

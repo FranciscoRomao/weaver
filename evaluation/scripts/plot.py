@@ -18,7 +18,7 @@ def plot(config):
     data_geyser = pd.read_csv(config['input_geyser'])
     data_superconducting = pd.read_csv(config['input_superconducting'])
 
-    pdb.set_trace()
+    #pdb.set_trace()
     if plot_property == 'execution_time':
         pass    
     
@@ -28,7 +28,7 @@ def plot(config):
     data3 = pd.read_csv('backend_use_ratio_brisbane.csv')
 
     #drop Unnamed column
-    pdb.set_trace()
+    #pdb.set_trace()
     data = data1 + data2 + data3
     data = data.drop(data.columns[0], axis=1)
 

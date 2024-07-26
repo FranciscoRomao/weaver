@@ -174,7 +174,7 @@ def uneven_grouped_bar_plot(
     
     spacing_per_group = [spacing * group_size_percentages[i] for i in range(num_groups)]
 
-    pdb.set_trace()
+    #pdb.set_trace()
 
     #if bar_width == None:
     #    bar_width = spacing / (num_bars + 1)

@@ -5,7 +5,7 @@ import random
 import numpy as np
 from qiskit import QuantumCircuit
 
-pdb.set_trace()
+#pdb.set_trace()
 
 
 def gen_random_circuit(n_qubits, n_2q_gate, max_distance_2q, n_interact_q, n_circ):
