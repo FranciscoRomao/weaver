@@ -2,3 +2,4 @@ pdm.lock
 .venv/
 _fpqa_max3sat/
 .vscode/
+**/__pycache__/

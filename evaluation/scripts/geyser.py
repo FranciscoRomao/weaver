@@ -101,7 +101,7 @@ def run(config):
             instances_names = [instances_names]
 
         for file_name in instances_names:
-            tmp_hamiltonion = Max3satHamiltonian('fpqa_max3sat/instances/'+file_name)
+            tmp_hamiltonion = Max3satHamiltonian('weaver/benchmarks/'+file_name)
             tmp_qaoa = QAOA(tmp_hamiltonion)#.naive_qaoa_circuit(qaoa_depth)
             qaoa_circuit, cost_params, mixer_params = tmp_qaoa.naive_qaoa_circuit(qaoa_depth)
             qaoas_instances.append([qaoa_circuit, cost_params, mixer_params])
