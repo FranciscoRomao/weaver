@@ -114,6 +114,7 @@ def run(config):
     results = pd.DataFrame(columns=['instance_type', 'instance_info', 'qaoa_depth', 'geyser_iterations', 'runtime', 'execution_time', 'n_pulses', 'optimized_circuit'])
     
     for circuit, instance_info in zip(transpiled_circuits, instance_clauses if instance_type == 'generated' else instances_names):
+        print(f"Running geyser compilation for circuit {instance_type} {instance_info}")
         tmp = perf_counter()
         geyser_opt_circuit, n_pulses, pulses, distances = run_geyser(circuit, geyset_iterations)
         tmp = perf_counter()-tmp
