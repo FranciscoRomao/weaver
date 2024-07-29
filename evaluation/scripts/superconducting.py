@@ -1,7 +1,6 @@
 #from qiskit import QuantumCircuit
 from qiskit import transpile
-#from qiskit_ibm_runtime.fake_provider.backends import FakeWashington
-#from qiskit.providers.fake_provider import FakeWashington, FakeKolkata
+from qiskit.providers.fake_provider import FakeWashington
 import pdb
 #from utils.utils_fid import calculate_fidelity, estimate_fidelity
 #from utils.quasi_distr import QuasiDistr
@@ -23,7 +22,7 @@ from geyser.code.map_circuit import MapCircuit
 from geyser.code.block_circuit import BlockCircuit
 from geyser.code.compose_circuit import ComposeCircuit
 from qiskit.dagcircuit import DAGCircuit, DAGOpNode
-from utils.base_estimator import BaseEstimator
+from evaluation.utils.gate_length_estimator import GateLengthEstimator
 from qiskit.converters import circuit_to_dag
 
 gate_time_1q = 5.0e-07
@@ -47,8 +46,9 @@ def run(config):
 
     basis_gates = ["rx", "rz", "x", "y", "z", "h", "id", "cz"]
     qaoa_depth = int(config['qaoa_depth'])
-    instance_type = config['instante_type']
+    instance_type = config['instance_type']
     qaoas_instances = []
+    backend = FakeWashington()
 
     transpiled_circuits = []
 
@@ -72,7 +72,7 @@ def run(config):
             instances_names = [instances_names]
 
         for file_name in instances_names:
-            tmp_hamiltonion = Max3satHamiltonian('fpqa_max3sat/instances/'+file_name)
+            tmp_hamiltonion = Max3satHamiltonian('weaver/benchmarks/'+file_name)
             tmp_qaoa = QAOA(tmp_hamiltonion)#.naive_qaoa_circuit(qaoa_depth)
             qaoa_circuit, cost_params, mixer_params = tmp_qaoa.naive_qaoa_circuit(qaoa_depth)
             qaoas_instances.append([qaoa_circuit, cost_params, mixer_params])
@@ -82,17 +82,17 @@ def run(config):
             bound_circuit.measure_all()
             transpiled_circuits.append(transpile(bound_circuit, basis_gates=basis_gates, optimization_level=3))
     
-    results = pd.DataFrame(columns=['instance_type', 'instance_info', 'qaoa_depth', 'runtime', 'execution_time', 'n_pulses', 'optimized_circuit'])
+    results = pd.DataFrame(columns=['instance_type', 'instance_info', 'qaoa_depth', 'runtime', 'execution_time'])
     
     basis_gates = ["u3", "id", "cz", "ccz", "cccz"]
 
     for circuit, instance_info in zip(transpiled_circuits, instance_clauses if instance_type == 'generated' else instances_names):
         tmp = perf_counter()
-        circuit = transpile(circuit, basis_gates=basis_gates, optimization_level=3)
+        circuit = transpile(circuit, optimization_level=3, backend=backend)
         tmp = perf_counter()-tmp
-        exec_time = BaseEstimator().estimate_execution_time(circuit)
+        exec_time = GateLengthEstimator().estimate_circuit_execution_time(circuit, backend)
         #exec_time = compute_execution_time(circuit)
-        results.loc[len(results)] = [instance_type, instance_info, qaoa_depth, tmp, exec_time, pickle.dumps(circuit.qasm())]
+        results.loc[len(results)] = [instance_type, instance_info, qaoa_depth, tmp, exec_time]
     
     results.to_csv('./evaluation/results/superconducting_results.csv')
     

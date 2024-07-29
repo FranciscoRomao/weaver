@@ -4,6 +4,7 @@ import yaml
 import pdb
 import evaluation.scripts.geyser as geyser
 import evaluation.scripts.instances_to_qasm as instances_to_qasm
+import evaluation.scripts.superconducting as superconducting
 import evaluation.scripts.atomique as atomique
 import evaluation.scripts.plot as plot
 #import .qcomp.evaluation.scripts.optimization_fidelity as optimization_fidelity
@@ -44,17 +45,17 @@ def main():
             geyser.plot(config[evaluation_script][action])
     elif evaluation_script == 'superconducting':
         if action == 'run':
-            geyser.run(config[evaluation_script][action])
+            superconducting.run(config[evaluation_script][action])
         elif action == 'plot':
-            geyser.plot(config[evaluation_script][action])
+            superconducting.plot(config[evaluation_script][action])
     elif evaluation_script == 'instances_to_qasm':
         if action == 'run':
             instances_to_qasm.run(config[evaluation_script][action])
         elif action == 'plot':
             instances_to_qasm.plot(config[evaluation_script][action])
-    elif evaluation_script == 'plot_execution_time':
+    elif evaluation_script == 'plot':
         if action == 'run':
-            plot.run(config[evaluation_script][action])
+            plot.plot(config[evaluation_script][action])
         elif action == 'plot':
             plot.plot(config[evaluation_script][action])
     else:

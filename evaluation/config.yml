@@ -1,42 +1,72 @@
 geyser:
   run:  
     iterations: 10
-    instante_type: stored #generated (independent) or stored (dependent)
+    instance_type: stored #generated (independent) or stored (dependent)
     instance_clauses: [1] #uniform independent clauses
-    instances_names: ['uf20-010.cnf']
+    instances_names: ['uf20-01.cnf',
+                      'uf20-02.cnf',
+                      'uf20-03.cnf',
+                      'uf20-04.cnf',
+                      'uf20-05.cnf',
+                      'uf20-06.cnf',
+                      'uf20-07.cnf',
+                      'uf20-08.cnf',
+                      'uf20-09.cnf',
+                      'uf20-010.cnf']
     qaoa_depth: 1
 
 atomique:
   run:  
-    instances_names: ['uf20-01.cnf', 'uf20-02.cnf', 'uf20-03.cnf', 'uf20-04.cnf', 'uf20-05.cnf']
+    instances_names: ['uf20-01.cnf',
+                      'uf20-02.cnf',
+                      'uf20-03.cnf',
+                      'uf20-04.cnf',
+                      'uf20-05.cnf',
+                      'uf20-06.cnf',
+                      'uf20-07.cnf',
+                      'uf20-08.cnf',
+                      'uf20-09.cnf',
+                      'uf20-010.cnf']
     qaoa_depth: 1
 
 superconducting:
-  run:  
-    instances_names: ['uf20-01.cnf', 'uf20-02.cnf', 'uf20-03.cnf', 'uf20-04.cnf', 'uf20-05.cnf']
+  run:
+    instance_type: stored #generated (independent) or stored (dependent)
+    instances_names: ['uf20-01.cnf',
+                      'uf20-02.cnf',
+                      'uf20-03.cnf',
+                      'uf20-04.cnf',
+                      'uf20-05.cnf',
+                      'uf20-06.cnf',
+                      'uf20-07.cnf',
+                      'uf20-08.cnf',
+                      'uf20-09.cnf',
+                      'uf20-010.cnf']
     qaoa_depth: 1
 
 instances_to_qasm:
   run:
     instance_type: generated #generated (independent) or stored (dependent)
     instance_clauses: [1] #uniform independent clauses
-    instances_names: ['uuf100-01.cnf',
-                      'uuf100-02.cnf',
-                      'uuf100-03.cnf',
-                      'uuf100-04.cnf',
-                      'uuf100-05.cnf',
-                      'uuf250-01.cnf',
-                      'uuf250-02.cnf',
-                      'uuf250-03.cnf',
-                      'uuf250-04.cnf',
-                      'uuf250-05.cnf']
+    instances_names: ['uf20-01.cnf',
+                      'uf20-02.cnf',
+                      'uf20-03.cnf',
+                      'uf20-04.cnf',
+                      'uf20-05.cnf',
+                      'uf20-06.cnf',
+                      'uf20-07.cnf',
+                      'uf20-08.cnf',
+                      'uf20-09.cnf',
+                      'uf20-010.cnf']
     qaoa_depth: 1
 
 
-plot_execution_time:
+plot:
   plot:
+    n_variables: [20]
     plot_property: execution_time
     geyser_input: evaluation/results/geyser_results.csv
     atomique_input: evaluation/results/atomique_results.csv
-    superconducting_input: evaluation/results/superconducting_results.csv
+    #superconducting_input: evaluation/results/superconducting_results.csv
+    weaver_input: weaver/results/fpqa-1.csv
     output_file: evaluation/results/execution_time.pdf

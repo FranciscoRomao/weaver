@@ -26,6 +26,9 @@ from qiskit.dagcircuit import DAGCircuit, DAGOpNode
 from qiskit.converters import circuit_to_dag
 
 gate_time_1q = 5.0e-07
+u3_time = 0.5
+cz_time = 0.2
+ccz_time = 1
 gate_time_1qplus = 2.0e-07
 
 def run_geyser(circuit, iterations):
@@ -56,19 +59,22 @@ def run_geyser(circuit, iterations):
 
 def compute_execution_time(circuit):
     
-    basis_gates = ["u3", "cz", "ccz", "cccz"]
+    basis_gates = ["u3", "cz", "ccz"]
     circuit = transpile(circuit, basis_gates=basis_gates, optimization_level=0)
     dag = circuit_to_dag(circuit)
 
     path = dag.longest_path()
 
     total_time = 0
+    pdb.set_trace()
     for i in path:
         if isinstance(i, DAGOpNode):
             if i.name == 'u3':
-                total_time += gate_time_1q
-            else:
-                total_time += gate_time_1qplus
+                total_time += u3_time
+            elif i.name == 'cz':
+                total_time += cz_time
+            elif i.name == 'ccz':
+                total_time += ccz_time
     return total_time
 
 def run(config):
@@ -76,7 +82,7 @@ def run(config):
     basis_gates = ["rx", "rz", "x", "y", "z", "h", "id", "cz"]
     qaoa_depth = int(config['qaoa_depth'])
     geyset_iterations = int(config['iterations'])
-    instance_type = config['instante_type']
+    instance_type = config['instance_type']
     qaoas_instances = []
 
     transpiled_circuits = []

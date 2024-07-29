@@ -6,21 +6,49 @@ from time import perf_counter
 import numpy as np
 import pandas as pd
 from qiskit.providers.fake_provider import FakeWashington
+from evaluation.utils.plot.util import grouped_bar_plot
 import pdb
+import matplotlib.pyplot as plt
 
 def plot(config):
-    nqubits = config['nqubits']
     plot_property = config['plot_property']
     
     backend = FakeWashington()
 
-    data_atomique = pd.read_csv(config['input_atomique'])
-    data_geyser = pd.read_csv(config['input_geyser'])
-    data_superconducting = pd.read_csv(config['input_superconducting'])
+    data_atomique = pd.read_csv(config['atomique_input'])
+    data_geyser = pd.read_csv(config['geyser_input'])
+    #data_superconducting = pd.read_csv(config['superconducting_input'])
+    data_weaver = pd.read_csv(config['weaver_input'])
+    output_file = config['output_file']
+    n_variables = config['n_variables']
 
-    #pdb.set_trace()
+    if not isinstance(n_variables, list):
+        n_variables = [n_variables]
+
+    pdb.set_trace()
     if plot_property == 'execution_time':
-        pass    
+        data = []
+        for var in n_variables:
+            atomique_execution_time = data_atomique[data_atomique['n_variables']==var]['execution_time'].mean() * 1e6
+            geyser_execution_time = data_geyser['execution_time'].mean() * 1e6
+            #superconducting_execution_time = np.array(data_superconducting['execution_time'])
+            weaver_execution_time = data_weaver['execution_time (microseconds)'].mean()
+
+            data.append([round(atomique_execution_time,0), round(geyser_execution_time,0), round(weaver_execution_time,0)])
+
+        data = np.array(data)
+
+        fig, ax = plt.subplots(1, 1, figsize=(7, 5))
+
+        grouped_bar_plot(ax, data, bar_labels=['Atomique', 'Geyser', 'Weaver'], group_labels=[str(i) for i in n_variables])
+
+        ax.set_title('Execution time (microseconds)', fontweight='bold')
+
+        plt.legend()
+
+        plt.tight_layout()
+
+        plt.savefig(output_file)
     
     '''
     data1 = pd.read_csv('backend_use_ratio_osaka.csv')

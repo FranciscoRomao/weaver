@@ -2,7 +2,7 @@ from qiskit import QuantumCircuit
 from qiskit.circuit import Measure, Gate
 from qiskit.converters import circuit_to_dag
 from qiskit.providers import Backend
-
+import pdb
 from .circuit_estimator import CircuitEstimator
 
 
@@ -21,9 +21,11 @@ class GateLengthEstimator(CircuitEstimator):
         :param backend: Backend to be estimated on
         :return: Estimated execution time
         """
+
         backend_properties = backend.properties()
         execution_time = 0
-        dag = circuit_to_dag(circuit, copy_operations=False)
+        #dag = circuit_to_dag(circuit, copy_operations=False)
+        dag = circuit_to_dag(circuit)
         for layer in dag.layers():
             max_operation_time = 0
             for node in layer["graph"].op_nodes():
