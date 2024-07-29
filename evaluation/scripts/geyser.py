@@ -118,6 +118,8 @@ def run(config):
             transpiled_circuits.append(transpile(bound_circuit, basis_gates=basis_gates, optimization_level=3))
     
     results = pd.DataFrame(columns=['instance_type', 'instance_info', 'qaoa_depth', 'geyser_iterations', 'runtime', 'execution_time', 'n_pulses', 'optimized_circuit'])
+
+    results.to_csv('./evaluation/results/geyser_results.csv')
     
     for circuit, instance_info in zip(transpiled_circuits, instance_clauses if instance_type == 'generated' else instances_names):
         print(f"Running geyser compilation for circuit {instance_type} {instance_info}")
@@ -126,8 +128,7 @@ def run(config):
         tmp = perf_counter()-tmp
         exec_time = compute_execution_time(geyser_opt_circuit)
         results.loc[len(results)] = [instance_type, instance_info, qaoa_depth, geyset_iterations, tmp, exec_time, n_pulses, pickle.dumps(geyser_opt_circuit.qasm())]
-    
-    results.to_csv('./evaluation/results/geyser_results.csv')
-    
+        results.to_csv('./evaluation/results/geyser_results.csv', index=False, mode='a')
+
 def plot(config):
     pass
