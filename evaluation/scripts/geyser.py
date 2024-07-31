@@ -66,7 +66,6 @@ def compute_execution_time(circuit):
     path = dag.longest_path()
 
     total_time = 0
-    pdb.set_trace()
     for i in path:
         if isinstance(i, DAGOpNode):
             if i.name == 'u3':
