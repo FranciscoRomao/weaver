@@ -7,6 +7,8 @@ import evaluation.scripts.instances_to_qasm as instances_to_qasm
 import evaluation.scripts.superconducting as superconducting
 import evaluation.scripts.atomique as atomique
 import evaluation.scripts.plot as plot
+import evaluation.scripts.instances_to_dpqa_json as instances_to_dpqa_json
+#import .qcomp.evaluation.scripts.optimization_time as optimization_time
 #import .qcomp.evaluation.scripts.optimization_fidelity as optimization_fidelity
 #import scripts.mapping_similarity as mapping_similarity
 #import scripts.qubits_use_frequency as qubits_use_frequency
@@ -54,10 +56,9 @@ def main():
         elif action == 'plot':
             instances_to_qasm.plot(config[evaluation_script][action])
     elif evaluation_script == 'plot':
-        if action == 'run':
-            plot.plot(config[evaluation_script][action])
-        elif action == 'plot':
-            plot.plot(config[evaluation_script][action])
+        plot.plot(config[evaluation_script][action])
+    elif evaluation_script == 'instances_to_dpqa_json':
+        instances_to_dpqa_json.run(config[evaluation_script][action])
     else:
         print("Invalid evaluation script.")
         sys.exit(1)

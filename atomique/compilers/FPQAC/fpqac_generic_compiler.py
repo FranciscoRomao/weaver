@@ -388,7 +388,7 @@ class FPQACGenericCompiler(object):
         log["others"]["degree"] = self.circ_stats["degree"]
         log["others"]["n_qubits"] = self.circ_stats["n_qubits"]
 
-        # print(res)
+        #print(log['code'])
         return log
 
 

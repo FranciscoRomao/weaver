@@ -7,11 +7,11 @@ from qiskit.circuit import QuantumCircuit
 from qiskit.compiler import transpile
 from qiskit.quantum_info import hellinger_fidelity
 from qiskit_aer import AerSimulator
-from quasi_distr import QuasiDistr
+#from quasi_distr import QuasiDistr
 from qiskit import QuantumCircuit
 from qiskit.converters import circuit_to_dag
 import networkx as nx
-from qiskit_optimization.applications import Maxcut
+#from qiskit_optimization.applications import Maxcut
 from qiskit.circuit.library import QAOAAnsatz
 
 FONTSIZE = 12
@@ -61,6 +61,8 @@ def calculate_expected_fidelity(circuit, backend):
     #return fidelity * decoherence_fidelity, fidelity, int(np.ceil(estimated_shots)), int(np.ceil(estimated_shots_without_decoherence))
     return fidelity
 
+
+'''
 
 def qaoa_maxcut_gen(n_nodes: int, degree: int) -> QuantumCircuit:
 
@@ -191,3 +193,5 @@ def estimate_fidelity(circ, backend):
 #    out.sort(key=lambda x: x[1])
 #    
 #    return out
+
+'''

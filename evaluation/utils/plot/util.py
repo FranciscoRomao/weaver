@@ -81,13 +81,15 @@ def grouped_bar_plot(
     
     x = np.arange(num_groups)
 
+    #plt.text((i+2)//num_groups + (i * bar_width), 0, "X", ha='center', va='bottom')
+    #Set X on nan values
+
+
     for i in range(num_bars):
         y_bars = y[:, i]
         #yerr_bars = yerr[:, i]
 
         color, hatch = colors[i % len(colors)], hatches[i % len(hatches)]
-
-        #print(color)
 
         ax.bar(
             x + (i * bar_width),
@@ -102,6 +104,22 @@ def grouped_bar_plot(
             error_kw=dict(lw=2, capsize=3),
             zorder=zorder,
         )
+
+    #for j in range(num_groups):
+    #    if np.isnan(y[j][1]):
+    #        ax.text((1+j*num_groups-1)//num_groups+1*bar_width, 0.00021, "X", ha='center', va='bottom', fontsize=15)
+
+    #for j in range(num_groups):
+    #    if np.isnan(y[j][3]):
+    #        ax.text((3+j*num_groups-1)//num_groups+3*bar_width, 0.00021, "X", ha='center', va='bottom', fontsize=15)
+
+    pdb.set_trace()
+    min_value = np.min(y[y > 0])
+
+    #for j in range(num_groups):
+    #    if np.isnan(y[j][2]):
+    #        ax.text((2+j*num_groups-1)//num_groups+2*bar_width, min_value, "X", ha='center', va='bottom', fontsize=15)
+    
     ax.set_xticks(x + ((num_bars - 1) / 2) * bar_width)
     ax.set_xticklabels(group_labels)
 
