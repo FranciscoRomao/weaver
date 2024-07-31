@@ -311,7 +311,7 @@ class HyperParams(object):
         # na_n_move_per_cooling=20,
         cooling_deltaN_thres=15,
         na_1Q_fidelity=0.999, #modified
-        na_2Q_fidelity=0.9995, #modified
+        na_2Q_fidelity=0.995, #modified
         na_simultaneous_1q_gate=1e10,
         lambd=0.109375,
         atom_loss_prob=0, #modified

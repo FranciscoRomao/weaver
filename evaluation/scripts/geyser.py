@@ -1,35 +1,22 @@
-#from qiskit import QuantumCircuit
 from qiskit import transpile
-#from qiskit_ibm_runtime.fake_provider.backends import FakeWashington
-#from qiskit.providers.fake_provider import FakeWashington, FakeKolkata
 import pdb
-#from utils.utils_fid import calculate_fidelity, estimate_fidelity
-#from utils.quasi_distr import QuasiDistr
 from time import perf_counter
 import numpy as np
-#import mapomatic.circuits as mm
 import pandas as pd
-#import seaborn as sns
-import matplotlib.pyplot as plt
-from matplotlib import gridspec
 from weaver.utils.hamiltonians import Max3satHamiltonian
 from weaver.utils.sat_utils import uniformly_random_independent_clauses
 from weaver.utils.qaoa import QAOA
-from qiskit import QuantumCircuit
 from pysat.formula import CNF
-from weaver.utils.circuit_utils import calculate_expected_fidelity
 import pickle
 from geyser.code.map_circuit import MapCircuit
 from geyser.code.block_circuit import BlockCircuit
 from geyser.code.compose_circuit import ComposeCircuit
-from qiskit.dagcircuit import DAGCircuit, DAGOpNode
+from qiskit.dagcircuit import DAGOpNode
 from qiskit.converters import circuit_to_dag
 
-gate_time_1q = 5.0e-07
 u3_time = 0.5
 cz_time = 0.2
 ccz_time = 1
-gate_time_1qplus = 2.0e-07
 
 def run_geyser(circuit, iterations):
     layout = None

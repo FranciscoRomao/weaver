@@ -32,7 +32,6 @@ def run(config):
     service = QiskitRuntimeService(instance="ibm-q/open/main")
     backend = service.backend(backend_name)
 
-
     fids = []
 
     for j,nq in enumerate(nqubits):

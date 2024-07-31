@@ -12,6 +12,7 @@ from atomique.benchmarks.benchmark_set import BenchmarkSets
 from atomique.hyperparams import HyperParamSets
 from atomique.utils import count_1q_2q_gates, get_n2q_interation_stats
 import pandas as pd
+from itertools import cycle
 
 def run(config):
 
@@ -65,8 +66,12 @@ def run(config):
 
     data = pd.DataFrame(columns=['variant', 'n_variables', 'depth', 'total_fidelity', 'compilation_time', 'n_1q_gate', 'n_2q_gate', 'execution_time'])
 
-    for i,type in zip(all_res,all_res[0]['hyperparams']['configs']['benchmarks'][0]['type']):
-        data.loc[len(data)] = [type[0], all_res[0]['hyperparams']['configs']['benchmarks'][0]['n_qubits'][0], type[1], i['fidelity']['total_fidelity'], i['circ_stats']['compilation_time'], i['circ_stats']['n_1q_gate'], i['circ_stats']['n_2q_gate'], i['time']['total_time']]
+    yaml.dump(all_res, open(f"{hyperparam_sets.configs.result_path}/atomique_results.yml", "w"))
+    
+    for i, type, nqubits in zip(all_res, cycle(all_res[0]['hyperparams']['configs']['benchmarks'][0]['type']), cycle(all_res[0]['hyperparams']['configs']['benchmarks'][0]['n_qubits'])):
+            data.loc[len(data)] = [type[0], nqubits, type[1], i['fidelity']['total_fidelity'], i['circ_stats']['compilation_time'], i['circ_stats']['n_1q_gate'], i['circ_stats']['n_2q_gate'], i['time']['total_time']]
+    #for i,type in zip(all_res,all_res[0]['hyperparams']['configs']['benchmarks'][0]['type']):
+    #    data.loc[len(data)] = [type[0], all_res[0]['hyperparams']['configs']['benchmarks'][0]['n_qubits'][0], type[1], i['fidelity']['total_fidelity'], i['circ_stats']['compilation_time'], i['circ_stats']['n_1q_gate'], i['circ_stats']['n_2q_gate'], i['time']['total_time']]
 
     data.to_csv(f"{hyperparam_sets.configs.result_path}/atomique_results.csv")
 
