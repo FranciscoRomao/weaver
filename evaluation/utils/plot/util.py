@@ -107,19 +107,20 @@ def grouped_bar_plot(
             zorder=zorder,
         )
 
-    #for j in range(num_groups):
-    #    if np.isnan(y[j][1]):
-    #        ax.text((1+j*num_groups-1)//num_groups+1*bar_width, 0.00022, "X", ha='center', va='bottom', fontsize=15)
-#
-    #for j in range(num_groups):
-    #    if np.isnan(y[j][3]):
-    #        ax.text((3+j*num_groups-1)//num_groups+3*bar_width, 0.00022, "X", ha='center', va='bottom', fontsize=15)
+    for j in range(num_groups):
+        if np.isnan(y[j][1]):
+            ax.text((1+j*num_groups-1)//num_groups+1*bar_width, 0.000215, "X", ha='center', va='bottom', fontsize=11)
+    
+    for j in range(num_groups):
+        if np.isnan(y[j][3]):
+            ax.text((3+j*num_groups-1)//num_groups+3*bar_width, 0.000215, "X", ha='center', va='bottom', fontsize=11)
 
     min_value = np.min(y[y > 0])
-
+    #1000 for fidelity plot
+    #67 for compilation time plot
     ax.text(
         2.8,
-        72,
+        4,
         LOWERISBETTER,
         ha="center",
         fontsize=ISBETTER_FONTSIZE,

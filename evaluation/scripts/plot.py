@@ -43,11 +43,11 @@ def plot(config):
 
         grouped_bar_plot(ax, data, bar_labels=['Atomique', 'Geyser', 'Weaver', 'Superconducting'], group_labels=[str(i) for i in n_variables])
 
-        ax.set_title('Circuit execution time', fontweight='bold')
+        #ax.set_title('Circuit execution time', fontweight='bold')
 
         ax.set_xlabel('Number of variables')
 
-        ax.set_ylabel('Execution time (seconds)')
+        ax.set_ylabel('Execution time [seconds]')
 
         ax.set_yscale('log')
 
@@ -80,9 +80,9 @@ def plot(config):
 
         ax.set_xlabel('Number of variables')
 
-        ax.set_ylabel('Seconds')
+        ax.set_ylabel('Compilation time [seconds]')
 
-        ax.set_title('Compilation time', fontweight='bold')
+        #ax.set_title('Compilation time', fontweight='bold')
 
         plt.legend(loc="lower center", ncol=4, bbox_to_anchor=(0.5, -0.3))
 
@@ -107,17 +107,54 @@ def plot(config):
 
         data = np.array(data)
 
-        fig, ax = plt.subplots(1, 1, figsize=(11, 8.5))
+        fig, ax = plt.subplots(1, 1, figsize=(7, 5))
 
         grouped_bar_plot(ax, data, bar_labels=['Atomique', 'Weaver'], group_labels=[str(i) for i in n_variables])
 
-        ax.set_title('Estimates Probability of Success', fontweight='bold')
+        #ax.set_title('Estimated Probability of Success', fontweight='bold')
+
+        ax.set_ylabel('Success probability (eps)')
 
         ax.set_xlabel('Number of variables')
 
         ax.set_yscale('log')
 
-        plt.legend()
+        plt.legend(loc="lower center", ncol=4, bbox_to_anchor=(0.5, -0.3))
+
+        plt.tight_layout()
+
+        plt.savefig(output_file)
+
+    if plot_property == 'gate_fidelities':
+        data = []
+        for var in n_variables:
+            atomique_fidelity = data_atomique[data_atomique['n_variables']==var]['total_fidelity'].mean()
+            #superconducting_fidelity = np.array(data_superconducting[data_superconducting['n_variables']==var]['eps']).mean()
+            weaver_fidelity = data_weaver[data_weaver['ccz_fidelity']==0.995][data_weaver['num_variables']==var]['eps (fidelity)'].mean()
+
+            #if superconducting_fidelity < 1e-20:
+            #    superconducting_fidelity = 0
+#
+            #if atomique_fidelity < 1e-20:
+            #    atomique_fidelity = 0
+            
+            data.append([atomique_fidelity, weaver_fidelity])
+
+        data = np.array(data)
+
+        fig, ax = plt.subplots(1, 1, figsize=(7, 5))
+
+        grouped_bar_plot(ax, data, bar_labels=['Atomique', 'Weaver'], group_labels=[str(i) for i in n_variables])
+
+        #ax.set_title('Estimated Probability of Success', fontweight='bold')
+
+        ax.set_ylabel('Success probability (eps)')
+
+        ax.set_xlabel('Number of variables')
+
+        ax.set_yscale('log')
+
+        plt.legend(loc="lower center", ncol=4, bbox_to_anchor=(0.5, -0.3))
 
         plt.tight_layout()
 

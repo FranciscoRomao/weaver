@@ -104,12 +104,12 @@ instances_to_qasm:
 plot:
   plot:
     n_variables: [20, 50, 75, 100, 150, 250]
-    plot_property: compilation_time
+    plot_property: execution_time
     geyser_input: evaluation/results/geyser_results.csv
     atomique_input: evaluation/results/atomique_results.csv
     superconducting_input: evaluation/results/superconducting_results.csv
     weaver_input: weaver/results/fpqa-1.csv
-    output_file: evaluation/results/compilation_time.pdf
+    output_file: evaluation/results/execution_time.pdf
 
 instances_to_dpqa_json:
   run:

@@ -93,13 +93,21 @@ def run(config):
 
     print('eps:', eps)
 
+    n_cz = 0
+
+    for i in full_code:
+        if 'Rydberg' in i['name']:
+            n_cz += 1
+
+    pdb.set_trace()
+
     #runtime = compile_time + execution_time
     
-    results = pd.DataFrame(columns=['n_variables', 'qaoa_depth', 'compile_time', 'execution_time', 'eps'])
+    results = pd.DataFrame(columns=['n_variables', 'qaoa_depth', '1q_gates', '2q_gates', 'compile_time', 'execution_time', 'eps'])
 
     #results.to_csv('./evaluation/results/dpqa_results.csv')
     
-    results.loc[len(results)] = [n_variables, qaoa_depth, compile_time, total_execution_time, eps]
+    results.loc[len(results)] = [n_variables, qaoa_depth, circuit.count_ops()['u3'], n_cz, compile_time, total_execution_time, eps]
 
     #if './evaluation/results/dpqa_results.csv' exists, append to it, else create it
     if not os.path.isfile('./evaluation/results/dpqa_results.csv'):

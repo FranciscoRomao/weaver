@@ -81,6 +81,8 @@ def run(config):
             bound_circuit = qaoa_circuit.assign_parameters({cost_params: [np.pi / 2.123 for param in cost_params], mixer_params: [np.pi / 3.123 for param in mixer_params]})
             bound_circuit.measure_all()
             transpiled_circuits.append(transpile(bound_circuit, basis_gates=basis_gates, optimization_level=3))
+
+    pdb.set_trace()
     
     results = pd.DataFrame(columns=['instance_type', 'instance_info', 'qaoa_depth', 'runtime', 'execution_time', 'eps'])
     
