@@ -11,7 +11,9 @@ from weaver.utils.qaoa import QAOA
 from qiskit import QuantumCircuit
 from weaver.utils.circuit_utils import calculate_expected_fidelity
 import pickle
+from pysat.formula import CNF
 import json
+import os
 
 def run(config):
 
@@ -31,7 +33,8 @@ def run(config):
 
         for clauses in instance_clauses:
             tmp = uniformly_random_independent_clauses(clauses)
-            tmp = Max3satHamiltonian(clauses=tmp)
+            formula = CNF(from_clauses=tmp)
+            tmp = Max3satHamiltonian(formula=formula)
             tmp = QAOA(tmp).naive_qaoa_circuit(qaoa_depth)
             qaoas_instances.append(tmp)
     else:
@@ -51,25 +54,45 @@ def run(config):
         bound_circuit.measure_all()
         transpiled_circuits.append(transpile(bound_circuit, basis_gates=basis_gates, optimization_level=3))
 
-
     cz_gates = []
 
-    for circuit in transpiled_circuits:
+    #Save the circuit in qasm format
+    if instance_type == 'generated':
+        for i in range(len(transpiled_circuits)):
+            if os.path.exists('evaluation/benchmarks/DPQA/generated_' + str(instance_clauses[i]*3) + '.qasm'):
+                continue
+
+            with open('evaluation/benchmarks/DPQA/generated_' + str(instance_clauses[0]*3) + '.qasm', 'x') as f:
+                f.write(transpiled_circuits[0].qasm())
+    else:
+        for i, circuit in enumerate(transpiled_circuits):
+            if os.path.exists('evaluation/benchmarks/DPQA/' + instances_names[i].replace('.cnf', '.qasm')):
+                continue
+
+            with open('evaluation/benchmarks/DPQA/' + instances_names[i].replace('.cnf', '.qasm'), 'x') as f:
+                f.write(circuit.qasm())
+
+    for i,circuit in enumerate(transpiled_circuits):
+        cz_gates.append([])
         for instr in circuit.data:
             if instr[0].name == 'cz':
-                cz_gates.append([instr[1][0].index, instr[1][1].index])
+                cz_gates[i].append([instr[1][0].index, instr[1][1].index])
 
-    pdb.set_trace()
-    transformed_list = {"111": [[]]}
+    n_variables = [transpiled_circuits[i].num_qubits for i in range(len(transpiled_circuits))]
 
-    for cz in cz_gates:
-        #check if the last one added is not the same
-        if transformed_list["111"][0] == []:
-            transformed_list["111"][0].append([cz[0], cz[1]])
-        elif transformed_list["111"][0][-1] != [cz[0], cz[1]]:
-            transformed_list["111"][0].append([cz[0], cz[1]])
+    transformed_list = {}
+    for i in range(len(transpiled_circuits)):
+        transformed_list[str(n_variables[i])] = [[]]
 
-    with open("output.json", "w") as outfile:
+    for i in range(len(transpiled_circuits)):
+        for cz in cz_gates[i]:
+            #check if the last one added is not the same
+            if transformed_list[str(n_variables[i])][0] == []:
+                transformed_list[str(n_variables[i])][0].append([cz[0], cz[1]])
+            elif transformed_list[str(n_variables[i])][0][-1] != [cz[0], cz[1]]:
+                transformed_list[str(n_variables[i])][0].append([cz[0], cz[1]])
+
+    with open("evaluation/benchmarks/DPQA/graphs.json", "w") as outfile:
         json.dump(transformed_list, outfile, indent=4)
 
     #for circuit, name in zip(transpiled_circuits, instance_clauses if instance_type == 'generated' else instances_names):

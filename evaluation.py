@@ -8,6 +8,7 @@ import evaluation.scripts.superconducting as superconducting
 import evaluation.scripts.atomique as atomique
 import evaluation.scripts.plot as plot
 import evaluation.scripts.instances_to_dpqa_json as instances_to_dpqa_json
+import evaluation.scripts.dpqa as dpqa
 #import .qcomp.evaluation.scripts.optimization_time as optimization_time
 #import .qcomp.evaluation.scripts.optimization_fidelity as optimization_fidelity
 #import scripts.mapping_similarity as mapping_similarity
@@ -59,6 +60,8 @@ def main():
         plot.plot(config[evaluation_script][action])
     elif evaluation_script == 'instances_to_dpqa_json':
         instances_to_dpqa_json.run(config[evaluation_script][action])
+    elif evaluation_script == 'dpqa':
+        dpqa.run(config[evaluation_script][action])
     else:
         print("Invalid evaluation script.")
         sys.exit(1)

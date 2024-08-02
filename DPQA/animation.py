@@ -6,7 +6,7 @@ import matplotlib
 import networkx as nx
 import argparse
 from abc import ABC, abstractmethod
-
+import pdb
 
 # physics constants
 R_B = 6  # rydberg range
@@ -24,11 +24,11 @@ Y_HIGH_PAD = 4 * AOD_SEP
 
 # constants for animation
 FPS = 24  # frames per second
-INIT_FRM = 24  # initial empty frames
-PT_MICRON = 8  # scaling factor: points per micron
-MUS_PER_FRM = 8  # microseconds per frame
-T_RYDBERG = 0.15  # microseconds for Rydberg
-T_ACTIVATE = 50  # microseconds for (de)activating AOD
+INIT_FRM = 0  # initial empty frames
+PT_MICRON = 1  # scaling factor: points per micron
+MUS_PER_FRM = 1  # microseconds per frame
+T_RYDBERG = 0.2  # microseconds for Rydberg
+T_ACTIVATE = 0  # microseconds for (de)activating AOD
 
 
 # class for physical entities: qubits and AOD rows/cols
@@ -388,7 +388,9 @@ class Move(Inst):
                 max_distance = max(max_distance, distance)
 
         # movement time per Bluvstein et al. units are us and um.
-        self.duration = 200*((max_distance/110)**(1/2))
+        #self.duration = 200*((max_distance/110)**(1/2))
+        self.duration = ((max_distance)**(1/2))/0.55
+    
         data['duration'] = self.duration
 
         for qubit_obj in qubit_objs:
@@ -1941,7 +1943,7 @@ class Animator():
                  scaling_factor: int = PT_MICRON,
                  font: int = 10,
                  ffmpeg: str = 'ffmpeg',
-                 real_speed: bool = False,
+                 real_speed: bool = True, #Modified from False to True
                  show_graph: bool = False,
                  edges: Union[Sequence[Sequence[int]], None] = None,
                  dir: Union[str, None] = None
@@ -2004,12 +2006,12 @@ class Animator():
             # and Offload 1 frame
             if not real_speed:
                 if inst['type'] == 'Move' and 'BigMove' not in inst['name']:
-                    inst['duration'] = 1
+                    inst['duration'] = 0
 
             # Rydberg interaction is much shorter compared to the movements,
             # so using real speed, we will never see Rydberg.
             if inst['type'] == 'Rydberg':
-                inst['duration'] = MUS_PER_FRM * 8  # i.e., 8 frames
+                inst['duration'] = MUS_PER_FRM * 1 # i.e., 8 frames #Modified to reflect the actual duration of the Rydberg interaction
 
             # Activate and Deactivate is on par with some movements in terms of
             # duration, but we do not have ramping-up or -down animations yet,
@@ -2253,7 +2255,6 @@ class Animator():
             for row in inst['row_idx']:
                 self.row_plots[row].set_color((1, 0, 0, 0))
 
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('input_file', type=str)
@@ -2279,10 +2280,12 @@ if __name__ == "__main__":
     )
     Animator(
         codegen.code_full_file,
-        scaling_factor=args.scaling if args.scaling else PT_MICRON,
+        #scaling_factor=args.scaling if args.scaling else PT_MICRON,
+        scaling_factor=1,
         font=args.font if args.font else 10,
         ffmpeg=args.ffmpeg if args.ffmpeg else 'ffmpeg',
-        real_speed=args.realSpeed,
+        #real_speed=args.realSpeed,
+        real_speed=True,
         show_graph=not args.noGraph,
         edges=data["g_q"] if not args.noGraph else [],
         dir=args.dir if args.dir else './results/animations/'
