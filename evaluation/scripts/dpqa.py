@@ -31,22 +31,16 @@ def run(config):
     
     with open('evaluation/benchmarks/DPQA/graphs.json', 'r') as f:
         graphs = json.load(f)
-
-    filename = str(n_variables) + '_0'
-
-    #circuit_file = 'evaluation/benchmarks/DPQA/' + filename + '.qasm'
-
-    pdb.set_trace()
-
+   
     if instance_type == 'generated':
         circuit_file = 'evaluation/benchmarks/DPQA/generated_' + str(n_variables) + '.qasm'
     else:
-        circuit_file = 'evaluation/benchmarks/DPQA/' + filename + '.qasm'
+        circuit_file = 'evaluation/benchmarks/DPQA/' + str(n_variables) + '.qasm'
 
     circuit = QuantumCircuit.from_qasm_file(circuit_file)
     
     tmp = DPQA(
-        filename,
+        name=str(n_variables),
         dir='evaluation/results/',
         print_detail=True
     )
