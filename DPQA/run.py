@@ -23,7 +23,6 @@ tmp = DPQA(
     print_detail=args.print_detail
 )
 tmp.setArchitecture([16, 16, 16, 16])
-pdb.set_trace()
 if str(args.size) in graphs.keys() and args.id in range(10):
     tmp.setProgram(graphs[str(args.size)][args.id])
 else:

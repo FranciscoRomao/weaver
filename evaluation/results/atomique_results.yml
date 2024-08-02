@@ -2,7 +2,7 @@
   circ_stats:
     avg_move_distance: 0.002016263102201732
     avg_move_speed: 0.015702983662007258
-    compilation_time: 1.8171696662902832
+    compilation_time: 2.701079845428467
     depth: 428
     each_move_distance_mean: 0.3140596732474864
     each_move_distance_std: 1.3149664946759376
@@ -206,7 +206,7 @@
   circ_stats:
     avg_move_distance: 0.011236612270339823
     avg_move_speed: 0.02758127705041685
-    compilation_time: 7.107289791107178
+    compilation_time: 5.969189643859863
     depth: 1358
     each_move_distance_mean: 0.5516255410123942
     each_move_distance_std: 1.8259564091229425
@@ -323,7 +323,7 @@
   circ_stats:
     avg_move_distance: 0.015765175999646205
     avg_move_speed: 0.026144570480341967
-    compilation_time: 10.56159520149231
+    compilation_time: 11.30749225616455
     depth: 2010
     each_move_distance_mean: 0.5228914096094625
     each_move_distance_std: 1.701594836344614
@@ -440,7 +440,7 @@
   circ_stats:
     avg_move_distance: 0.023308663403459384
     avg_move_speed: 0.028829515650537273
-    compilation_time: 17.03554606437683
+    compilation_time: 17.738632917404175
     depth: 2695
     each_move_distance_mean: 0.5765903130128714
     each_move_distance_std: 1.756681526762592
@@ -557,7 +557,7 @@
   circ_stats:
     avg_move_distance: 0.043996500295109084
     avg_move_speed: 0.0353811823844866
-    compilation_time: 28.8668954372406
+    compilation_time: 30.58697748184204
     depth: 4145
     each_move_distance_mean: 0.7076236476917527
     each_move_distance_std: 1.8808307247829614
@@ -674,7 +674,7 @@
   circ_stats:
     avg_move_distance: 0.07144862306868775
     avg_move_speed: 0.036205849330438716
-    compilation_time: 69.91366529464722
+    compilation_time: 60.656174421310425
     depth: 6578
     each_move_distance_mean: 0.7241169866098877
     each_move_distance_std: 1.780527135768772
@@ -791,7 +791,7 @@
   circ_stats:
     avg_move_distance: 0.002416072222819736
     avg_move_speed: 0.018513963393254684
-    compilation_time: 3.925236940383911
+    compilation_time: 1.8949291706085205
     depth: 435
     each_move_distance_mean: 0.37027926787360893
     each_move_distance_std: 1.456396402413803
@@ -908,7 +908,7 @@
   circ_stats:
     avg_move_distance: 0.010731940614484148
     avg_move_speed: 0.025960185327731373
-    compilation_time: 5.654941082000732
+    compilation_time: 6.075765609741211
     depth: 1378
     each_move_distance_mean: 0.5192037065583707
     each_move_distance_std: 1.7530851923714603
@@ -1025,7 +1025,7 @@
   circ_stats:
     avg_move_distance: 0.018280960342336405
     avg_move_speed: 0.030869571668923346
-    compilation_time: 11.101609230041504
+    compilation_time: 9.59590458869934
     depth: 1974
     each_move_distance_mean: 0.6173914333815625
     each_move_distance_std: 1.7667168354545733
@@ -1142,7 +1142,7 @@
   circ_stats:
     avg_move_distance: 0.02547048926605886
     avg_move_speed: 0.03160894671886183
-    compilation_time: 15.2349271774292
+    compilation_time: 16.99748206138611
     depth: 2686
     each_move_distance_mean: 0.6321789343795913
     each_move_distance_std: 1.7947807052982885
@@ -1259,7 +1259,7 @@
   circ_stats:
     avg_move_distance: 0.046705960942963524
     avg_move_speed: 0.03863189490733129
-    compilation_time: 31.02028226852417
+    compilation_time: 28.373942375183105
     depth: 4030
     each_move_distance_mean: 0.7726378981487276
     each_move_distance_std: 1.93437525014626
@@ -1376,7 +1376,7 @@
   circ_stats:
     avg_move_distance: 0.07190972019701522
     avg_move_speed: 0.03646167741457014
-    compilation_time: 72.35393238067627
+    compilation_time: 62.15168285369873
     depth: 6574
     each_move_distance_mean: 0.729233548293084
     each_move_distance_std: 1.8102324882953587
@@ -1493,7 +1493,7 @@
   circ_stats:
     avg_move_distance: 0.002531613749486381
     avg_move_speed: 0.019855794113618676
-    compilation_time: 1.685396432876587
+    compilation_time: 1.8717029094696045
     depth: 425
     each_move_distance_mean: 0.3971158822817215
     each_move_distance_std: 1.4937046110940733
@@ -1610,7 +1610,7 @@
   circ_stats:
     avg_move_distance: 0.010034252367090052
     avg_move_speed: 0.02505431302644208
-    compilation_time: 5.329753160476685
+    compilation_time: 7.408629655838013
     depth: 1335
     each_move_distance_mean: 0.5010862605326154
     each_move_distance_std: 1.6176515244750727
@@ -1727,7 +1727,7 @@
   circ_stats:
     avg_move_distance: 0.015409344216997887
     avg_move_speed: 0.02697714323704112
-    compilation_time: 10.42650032043457
+    compilation_time: 11.092167139053345
     depth: 1904
     each_move_distance_mean: 0.5395428647436389
     each_move_distance_std: 1.7076662878207907
@@ -1844,7 +1844,7 @@
   circ_stats:
     avg_move_distance: 0.026786093775319035
     avg_move_speed: 0.03299592729159773
-    compilation_time: 17.072907209396362
+    compilation_time: 16.133843898773193
     depth: 2706
     each_move_distance_mean: 0.659918545834299
     each_move_distance_std: 1.8598053456296688
@@ -1961,7 +1961,7 @@
   circ_stats:
     avg_move_distance: 0.0398973493987035
     avg_move_speed: 0.03340647190714519
-    compilation_time: 27.387391328811646
+    compilation_time: 29.57304310798645
     depth: 3981
     each_move_distance_mean: 0.668129438144917
     each_move_distance_std: 1.780828726434884
@@ -2078,7 +2078,7 @@
   circ_stats:
     avg_move_distance: 0.07245468771297939
     avg_move_speed: 0.03698554758191904
-    compilation_time: 66.98259401321411
+    compilation_time: 62.29123330116272
     depth: 6530
     each_move_distance_mean: 0.7397109516403486
     each_move_distance_std: 1.8053456500587397
@@ -2195,7 +2195,7 @@
   circ_stats:
     avg_move_distance: 0.0031081651644759133
     avg_move_speed: 0.02223294109067177
-    compilation_time: 1.736945390701294
+    compilation_time: 1.9072942733764648
     depth: 466
     each_move_distance_mean: 0.44465882182297983
     each_move_distance_std: 1.7268245197818506
@@ -2312,7 +2312,7 @@
   circ_stats:
     avg_move_distance: 0.01157998977344732
     avg_move_speed: 0.029578517939839902
-    compilation_time: 7.309346914291382
+    compilation_time: 5.748247385025024
     depth: 1305
     each_move_distance_mean: 0.5915703588013252
     each_move_distance_std: 1.8709441224902512
@@ -2429,7 +2429,7 @@
   circ_stats:
     avg_move_distance: 0.018298865808669056
     avg_move_speed: 0.029311013629135126
-    compilation_time: 11.220723152160645
+    compilation_time: 11.992793321609497
     depth: 2081
     each_move_distance_mean: 0.5862202725854979
     each_move_distance_std: 1.7989194867689842
@@ -2546,7 +2546,7 @@
   circ_stats:
     avg_move_distance: 0.025544555484226916
     avg_move_speed: 0.03078399070164729
-    compilation_time: 15.715259313583374
+    compilation_time: 18.081613302230835
     depth: 2766
     each_move_distance_mean: 0.6156798140352379
     each_move_distance_std: 1.7762970426888403
@@ -2663,7 +2663,7 @@
   circ_stats:
     avg_move_distance: 0.041626137320339304
     avg_move_speed: 0.03353971261005504
-    compilation_time: 31.202263593673706
+    compilation_time: 29.387311935424805
     depth: 4137
     each_move_distance_mean: 0.6707942522031084
     each_move_distance_std: 1.80920512796178
@@ -2780,7 +2780,7 @@
   circ_stats:
     avg_move_distance: 0.07235119993346113
     avg_move_speed: 0.03730404740059868
-    compilation_time: 64.11630511283875
+    compilation_time: 65.48732209205627
     depth: 6465
     each_move_distance_mean: 0.7460809480131556
     each_move_distance_std: 1.8190575657267753
@@ -2897,7 +2897,7 @@
   circ_stats:
     avg_move_distance: 0.0024465792360098167
     avg_move_speed: 0.019556988297440583
-    compilation_time: 1.7263140678405762
+    compilation_time: 1.8646466732025146
     depth: 417
     each_move_distance_mean: 0.39113976595819455
     each_move_distance_std: 1.5940476261074674
@@ -3014,7 +3014,7 @@
   circ_stats:
     avg_move_distance: 0.010408657312792153
     avg_move_speed: 0.026485133111430418
-    compilation_time: 7.0265538692474365
+    compilation_time: 5.993891477584839
     depth: 1310
     each_move_distance_mean: 0.5297026622326524
     each_move_distance_std: 1.7838190798034899
@@ -3131,7 +3131,7 @@
   circ_stats:
     avg_move_distance: 0.020233904810472818
     avg_move_speed: 0.032981099935571016
-    compilation_time: 9.029891967773438
+    compilation_time: 11.81915807723999
     depth: 2045
     each_move_distance_mean: 0.6596219987146125
     each_move_distance_std: 1.9275577859798898
@@ -3248,7 +3248,7 @@
   circ_stats:
     avg_move_distance: 0.025594039442211426
     avg_move_speed: 0.03146937100972756
-    compilation_time: 15.449029684066772
+    compilation_time: 16.806987524032593
     depth: 2711
     each_move_distance_mean: 0.629387420196802
     each_move_distance_std: 1.8155211925124948
@@ -3365,7 +3365,7 @@
   circ_stats:
     avg_move_distance: 0.040322173804616585
     avg_move_speed: 0.032798254274130946
-    compilation_time: 30.896010160446167
+    compilation_time: 34.671911001205444
     depth: 4098
     each_move_distance_mean: 0.6559650854844765
     each_move_distance_std: 1.8435633084606085
@@ -3482,7 +3482,7 @@
   circ_stats:
     avg_move_distance: 0.07255201255207029
     avg_move_speed: 0.03760535559636671
-    compilation_time: 59.12749266624451
+    compilation_time: 58.717811822891235
     depth: 6431
     each_move_distance_mean: 0.7521071119281131
     each_move_distance_std: 1.8222443964719521
@@ -3599,7 +3599,7 @@
   circ_stats:
     avg_move_distance: 0.010620863279037256
     avg_move_speed: 0.026558797897067412
-    compilation_time: 5.417803049087524
+    compilation_time: 5.879867792129517
     depth: 1333
     each_move_distance_mean: 0.5311759579453129
     each_move_distance_std: 1.7900298946567144
@@ -3716,7 +3716,7 @@
   circ_stats:
     avg_move_distance: 0.01837885392574074
     avg_move_speed: 0.03166038574632342
-    compilation_time: 10.66815185546875
+    compilation_time: 9.561573505401611
     depth: 1935
     each_move_distance_mean: 0.6332077149296909
     each_move_distance_std: 1.8859137649350797
@@ -3833,7 +3833,7 @@
   circ_stats:
     avg_move_distance: 0.0028937305156482014
     avg_move_speed: 0.022123321985077993
-    compilation_time: 1.6421918869018555
+    compilation_time: 3.3583414554595947
     depth: 436
     each_move_distance_mean: 0.44246643971171173
     each_move_distance_std: 1.4863520235859682
@@ -3950,7 +3950,7 @@
   circ_stats:
     avg_move_distance: 0.027570842269824983
     avg_move_speed: 0.03521180366516601
-    compilation_time: 14.029108047485352
+    compilation_time: 15.771657228469849
     depth: 2610
     each_move_distance_mean: 0.7042360733062054
     each_move_distance_std: 1.9119178666739272
@@ -4067,7 +4067,7 @@
   circ_stats:
     avg_move_distance: 0.038866860462895725
     avg_move_speed: 0.03215591996599299
-    compilation_time: 27.364632844924927
+    compilation_time: 30.40462017059326
     depth: 4029
     each_move_distance_mean: 0.643118399321915
     each_move_distance_std: 1.7502968415341242
@@ -4184,7 +4184,7 @@
   circ_stats:
     avg_move_distance: 0.06730143664430181
     avg_move_speed: 0.03390842233187314
-    compilation_time: 56.95219826698303
+    compilation_time: 64.57045364379883
     depth: 6616
     each_move_distance_mean: 0.6781684466366446
     each_move_distance_std: 1.721200286765886
@@ -4301,7 +4301,7 @@
   circ_stats:
     avg_move_distance: 0.011769868882776893
     avg_move_speed: 0.02994877578314731
-    compilation_time: 6.958425760269165
+    compilation_time: 5.929394483566284
     depth: 1310
     each_move_distance_mean: 0.598975515667505
     each_move_distance_std: 1.845487861740363
@@ -4418,7 +4418,7 @@
   circ_stats:
     avg_move_distance: 0.018390953074303627
     avg_move_speed: 0.03069763490953702
-    compilation_time: 8.184979677200317
+    compilation_time: 11.376629114151001
     depth: 1997
     each_move_distance_mean: 0.6139526981937722
     each_move_distance_std: 1.8556251634370442
@@ -4535,7 +4535,7 @@
   circ_stats:
     avg_move_distance: 0.002619830624234387
     avg_move_speed: 0.02059615270624518
-    compilation_time: 3.3646225929260254
+    compilation_time: 1.7909893989562988
     depth: 424
     each_move_distance_mean: 0.4119230541346161
     each_move_distance_std: 1.5255724447776524
@@ -4652,7 +4652,7 @@
   circ_stats:
     avg_move_distance: 0.025113626813529646
     avg_move_speed: 0.02983324639288388
-    compilation_time: 14.5765540599823
+    compilation_time: 18.011876344680786
     depth: 2806
     each_move_distance_mean: 0.5966649278599833
     each_move_distance_std: 1.8071701507595521
@@ -4769,7 +4769,7 @@
   circ_stats:
     avg_move_distance: 0.041728372624524966
     avg_move_speed: 0.03472156151150355
-    compilation_time: 25.35703706741333
+    compilation_time: 28.568285703659058
     depth: 4006
     each_move_distance_mean: 0.6944312302321256
     each_move_distance_std: 1.8308727486762277
@@ -4886,7 +4886,7 @@
   circ_stats:
     avg_move_distance: 0.07551459469745196
     avg_move_speed: 0.038231366290731046
-    compilation_time: 54.12468123435974
+    compilation_time: 60.3419508934021
     depth: 6584
     each_move_distance_mean: 0.7646273258157252
     each_move_distance_std: 1.8381330011080237
@@ -5003,7 +5003,7 @@
   circ_stats:
     avg_move_distance: 0.009209160174267391
     avg_move_speed: 0.02285718583834051
-    compilation_time: 6.963317632675171
+    compilation_time: 7.7112717628479
     depth: 1343
     each_move_distance_mean: 0.45714371677021093
     each_move_distance_std: 1.6826002189628047
@@ -5120,7 +5120,7 @@
   circ_stats:
     avg_move_distance: 0.01637636542775739
     avg_move_speed: 0.026563447571382633
-    compilation_time: 8.537539005279541
+    compilation_time: 10.177933692932129
     depth: 2055
     each_move_distance_mean: 0.5312689514301828
     each_move_distance_std: 1.73954185461809
@@ -5237,7 +5237,7 @@
   circ_stats:
     avg_move_distance: 0.0023922787676165878
     avg_move_speed: 0.018718926194183007
-    compilation_time: 1.6196238994598389
+    compilation_time: 3.4749202728271484
     depth: 426
     each_move_distance_mean: 0.3743785238924508
     each_move_distance_std: 1.5767785638149154
@@ -5354,7 +5354,7 @@
   circ_stats:
     avg_move_distance: 0.024494146900367313
     avg_move_speed: 0.030568010608220782
-    compilation_time: 14.272753238677979
+    compilation_time: 16.1686053276062
     depth: 2671
     each_move_distance_mean: 0.6113602121667426
     each_move_distance_std: 1.8386694791545748
@@ -5471,7 +5471,7 @@
   circ_stats:
     avg_move_distance: 0.04093790102282675
     avg_move_speed: 0.03451180325647172
-    compilation_time: 26.546507358551025
+    compilation_time: 28.014931440353394
     depth: 3954
     each_move_distance_mean: 0.6902360651312932
     each_move_distance_std: 1.8052293922303084
@@ -5588,7 +5588,7 @@
   circ_stats:
     avg_move_distance: 0.07158170350104173
     avg_move_speed: 0.035692696834226746
-    compilation_time: 54.59179973602295
+    compilation_time: 61.04572367668152
     depth: 6685
     each_move_distance_mean: 0.7138539366859656
     each_move_distance_std: 1.7999073415521227
@@ -5705,7 +5705,7 @@
   circ_stats:
     avg_move_distance: 0.011897857939044711
     avg_move_speed: 0.03105679441149755
-    compilation_time: 6.957140684127808
+    compilation_time: 5.891540765762329
     depth: 1277
     each_move_distance_mean: 0.6211358882348038
     each_move_distance_std: 1.991104202412202
@@ -5822,7 +5822,7 @@
   circ_stats:
     avg_move_distance: 0.015359316875990474
     avg_move_speed: 0.026147968804886748
-    compilation_time: 8.129544496536255
+    compilation_time: 11.314908027648926
     depth: 1958
     each_move_distance_mean: 0.5229593761004194
     each_move_distance_std: 1.6904574269878638
@@ -5939,7 +5939,7 @@
   circ_stats:
     avg_move_distance: 0.0025533052726499092
     avg_move_speed: 0.01799369466279006
-    compilation_time: 1.6609671115875244
+    compilation_time: 1.9687740802764893
     depth: 473
     each_move_distance_mean: 0.3598738932634128
     each_move_distance_std: 1.357240054857912
@@ -6056,7 +6056,7 @@
   circ_stats:
     avg_move_distance: 0.02467286913239146
     avg_move_speed: 0.029195206641097454
-    compilation_time: 14.37287449836731
+    compilation_time: 16.408007383346558
     depth: 2817
     each_move_distance_mean: 0.5839041328239204
     each_move_distance_std: 1.7363588236454013
@@ -6173,7 +6173,7 @@
   circ_stats:
     avg_move_distance: 0.04087587494621221
     avg_move_speed: 0.03413149210605562
-    compilation_time: 25.009094953536987
+    compilation_time: 28.32726812362671
     depth: 3992
     each_move_distance_mean: 0.6826298421230939
     each_move_distance_std: 1.8298888434210956
@@ -6290,7 +6290,7 @@
   circ_stats:
     avg_move_distance: 0.07208968488567367
     avg_move_speed: 0.0364807878577368
-    compilation_time: 56.66346073150635
+    compilation_time: 62.748680114746094
     depth: 6587
     each_move_distance_mean: 0.7296157571571623
     each_move_distance_std: 1.7914488950462186
@@ -6407,7 +6407,7 @@
   circ_stats:
     avg_move_distance: 0.009436035255372904
     avg_move_speed: 0.025243540009023284
-    compilation_time: 4.7497711181640625
+    compilation_time: 7.480450868606567
     depth: 1246
     each_move_distance_mean: 0.5048708001845076
     each_move_distance_std: 1.6750794888868947
@@ -6524,7 +6524,7 @@
   circ_stats:
     avg_move_distance: 0.018048662126234457
     avg_move_speed: 0.030539191414948322
-    compilation_time: 11.260838747024536
+    compilation_time: 10.03224229812622
     depth: 1970
     each_move_distance_mean: 0.6107838283020364
     each_move_distance_std: 1.8491539983487402
@@ -6641,7 +6641,7 @@
   circ_stats:
     avg_move_distance: 0.002845088965697183
     avg_move_speed: 0.02160280156186168
-    compilation_time: 2.022301197052002
+    compilation_time: 1.85182785987854
     depth: 439
     each_move_distance_mean: 0.4320560312470795
     each_move_distance_std: 1.6617506868133085
@@ -6758,7 +6758,7 @@
   circ_stats:
     avg_move_distance: 0.02523062571184263
     avg_move_speed: 0.029509503756541093
-    compilation_time: 15.843004941940308
+    compilation_time: 16.457142114639282
     depth: 2850
     each_move_distance_mean: 0.5901900751329896
     each_move_distance_std: 1.7290398394124709
@@ -6875,7 +6875,7 @@
   circ_stats:
     avg_move_distance: 0.04237077169937047
     avg_move_speed: 0.03342070649895131
-    compilation_time: 26.697082042694092
+    compilation_time: 30.36511206626892
     depth: 4226
     each_move_distance_mean: 0.6684141299809218
     each_move_distance_std: 1.7887514318022626
@@ -6992,7 +6992,7 @@
   circ_stats:
     avg_move_distance: 0.06949492938276161
     avg_move_speed: 0.0348817594653223
-    compilation_time: 54.197470903396606
+    compilation_time: 62.94260883331299
     depth: 6641
     each_move_distance_mean: 0.6976351893091065
     each_move_distance_std: 1.7809266627052502

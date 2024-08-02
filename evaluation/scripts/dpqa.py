@@ -36,8 +36,6 @@ def run(config):
 
     #circuit_file = 'evaluation/benchmarks/DPQA/' + filename + '.qasm'
 
-    pdb.set_trace()
-
     if instance_type == 'generated':
         circuit_file = 'evaluation/benchmarks/DPQA/generated_' + str(n_variables) + '.qasm'
     else:
