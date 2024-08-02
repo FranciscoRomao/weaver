@@ -54,7 +54,7 @@ def run(config):
 
     compile_time = tmp.result_json['duration']
 
-    filename = 'evaluation/results/' + filename + '.json'
+    filename = 'evaluation/results/' + str(n_variables) + '.json'
 
     codegen = CodeGen(filename, dir='evaluation/results/')
 
@@ -105,4 +105,4 @@ def run(config):
     if not os.path.isfile('./evaluation/results/dpqa_results.csv'):
         results.to_csv('./evaluation/results/dpqa_results.csv')
     else:
-        results.to_csv('./evaluation/results/dpqa_results.csv', index=False, mode='a')
+        results.to_csv('./evaluation/results/dpqa_results.csv', index=False, mode='a', header=False)

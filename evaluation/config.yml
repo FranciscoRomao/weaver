@@ -96,36 +96,33 @@ superconducting:
 
 instances_to_qasm:
   run:
-    instance_type: stored #generated (independent) or stored (dependent)
+    instance_type: generated #generated (independent) or stored (dependent)
     instance_clauses: [1] #uniform independent clauses
     instances_names: ['f2000.cnf']
     qaoa_depth: 1
 
-
 plot:
   plot:
     n_variables: [20, 50, 75, 100, 150, 250]
-    plot_property: execution_time
+    plot_property: compilation_time
     geyser_input: evaluation/results/geyser_results.csv
     atomique_input: evaluation/results/atomique_results.csv
     superconducting_input: evaluation/results/superconducting_results.csv
     weaver_input: weaver/results/fpqa-1.csv
-    output_file: evaluation/results/execution_time.pdf
-
+    output_file: evaluation/results/compilation_time.pdf
 
 instances_to_dpqa_json:
   run:
-    instance_type: stored #generated (independent) or stored (dependent)
+    instance_type: generated #generated (independent) or stored (dependent)
     instance_clauses: [1] #uniform independent clauses
     instances_names: ['uf20-01.cnf',
                       'uuf50-01.cnf',]
     qaoa_depth: 1
 
-
 dpqa:
   run:
     instance_type: stored #generated (independent) or stored (dependent)
-    n_variables: 50
+    n_variables: 3
     instance_clauses: [1] #uniform independent clauses
     instances_names: ['uf20-01.cnf']
     qaoa_depth: 1

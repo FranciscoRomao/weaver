@@ -31,7 +31,7 @@ def plot(config):
         data = []
         for var in n_variables:
             atomique_execution_time = data_atomique[data_atomique['n_variables']==var]['execution_time'].mean()# * 1e6
-            geyser_execution_time = data_geyser[data_geyser['n_variables']==var]['execution_time'].mean()# * 1e6
+            geyser_execution_time = data_geyser[data_geyser['n_variables']==var]['execution_time'].mean() / 1e6
             superconducting_execution_time = np.array(data_superconducting[data_superconducting['n_variables']==var]['execution_time']).mean()# * 1e6
             weaver_execution_time = data_weaver[data_weaver['ccz_fidelity']==0.995][data_weaver['num_variables']==var]['execution_time (microseconds)'].mean() / 1e6
 
@@ -39,47 +39,56 @@ def plot(config):
 
         data = np.array(data)
 
-        fig, ax = plt.subplots(1, 1, figsize=(11, 8))
+        fig, ax = plt.subplots(1, 1, figsize=(7, 5))
 
         grouped_bar_plot(ax, data, bar_labels=['Atomique', 'Geyser', 'Weaver', 'Superconducting'], group_labels=[str(i) for i in n_variables])
 
-        ax.set_title('Execution time (seconds)', fontweight='bold')
+        ax.set_title('Circuit execution time', fontweight='bold')
 
         ax.set_xlabel('Number of variables')
 
+        ax.set_ylabel('Execution time (seconds)')
+
         ax.set_yscale('log')
 
-        plt.legend()
+        #plt.legend()
 
-        #plt.tight_layout()
+        plt.legend(loc="lower center", ncol=4, bbox_to_anchor=(0.5, -0.3))
+
+        plt.tight_layout()
 
         plt.savefig(output_file)
 
     if plot_property == 'compilation_time':
         data = []
+        
+        #Check why the compilation times for superconducting and weaver are constant but not for atomique
+        
         for var in n_variables:
             atomique_execution_time = data_atomique[data_atomique['n_variables']==var]['compilation_time'].mean()
-            geyser_execution_time = data_geyser['compilation_time (seconds)'].mean()
-            superconducting_execution_time = np.array(data_superconducting['execution_time'])
-            weaver_execution_time = data_weaver['runtime'].mean()
+            #geyser_execution_time = data_geyser['runtime'].mean()
+            superconducting_execution_time = np.array(data_superconducting['runtime']).mean()
+            weaver_execution_time = data_weaver['compilation_time (seconds)'].mean()
 
-            data.append([atomique_execution_time, geyser_execution_time, weaver_execution_time, superconducting_execution_time])
+            data.append([atomique_execution_time, weaver_execution_time, superconducting_execution_time])
 
         data = np.array(data)
 
         fig, ax = plt.subplots(1, 1, figsize=(7, 5))
 
-        grouped_bar_plot(ax, data, bar_labels=['Atomique', 'Geyser', 'Weaver'], group_labels=[str(i) for i in n_variables])
+        grouped_bar_plot(ax, data, bar_labels=['Atomique', 'Weaver', 'Superconducting'], group_labels=[str(i) for i in n_variables])
 
-        ax.set_title('Execution time (microseconds)', fontweight='bold')
+        ax.set_xlabel('Number of variables')
 
-        plt.legend()
+        ax.set_ylabel('Seconds')
 
-#        plt.tight_layout()
+        ax.set_title('Compilation time', fontweight='bold')
+
+        plt.legend(loc="lower center", ncol=4, bbox_to_anchor=(0.5, -0.3))
+
+        plt.tight_layout()
 
         plt.savefig(output_file)
-
-    pdb.set_trace()
 
     if plot_property == 'fidelity':
         data = []
@@ -107,30 +116,6 @@ def plot(config):
         ax.set_xlabel('Number of variables')
 
         ax.set_yscale('log')
-
-        plt.legend()
-
-        plt.tight_layout()
-
-        plt.savefig(output_file)
-
-    if plot_property == 'num_pulses':
-        data = []
-        for var in n_variables:
-            atomique_execution_time = data_atomique[data_atomique['n_variables']==var]['compilation_time'].mean()
-            geyser_execution_time = data_geyser['compilation_time (seconds)'].mean()
-            superconducting_execution_time = np.array(data_superconducting['execution_time'])
-            weaver_execution_time = data_weaver['runtime'].mean()
-
-            data.append([round(atomique_execution_time,0), round(geyser_execution_time,0), round(weaver_execution_time,0)])
-
-        data = np.array(data)
-
-        fig, ax = plt.subplots(1, 1, figsize=(7, 5))
-
-        grouped_bar_plot(ax, data, bar_labels=['Atomique', 'Geyser', 'Weaver'], group_labels=[str(i) for i in n_variables])
-
-        ax.set_title('Execution time (microseconds)', fontweight='bold')
 
         plt.legend()
 

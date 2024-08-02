@@ -12,6 +12,8 @@ from itertools import cycle
 
 
 FONTSIZE = 12
+HIGHERISBETTER = "Higher is better ↑"
+LOWERISBETTER = "Lower is better ↓"
 ISBETTER_FONTSIZE = FONTSIZE + 2
 WIDE_FIGSIZE = (13, 2.8)
 COLUMN_FIGSIZE = (6.5, 3.4)
@@ -107,14 +109,23 @@ def grouped_bar_plot(
 
     #for j in range(num_groups):
     #    if np.isnan(y[j][1]):
-    #        ax.text((1+j*num_groups-1)//num_groups+1*bar_width, 0.00021, "X", ha='center', va='bottom', fontsize=15)
-
+    #        ax.text((1+j*num_groups-1)//num_groups+1*bar_width, 0.00022, "X", ha='center', va='bottom', fontsize=15)
+#
     #for j in range(num_groups):
     #    if np.isnan(y[j][3]):
-    #        ax.text((3+j*num_groups-1)//num_groups+3*bar_width, 0.00021, "X", ha='center', va='bottom', fontsize=15)
+    #        ax.text((3+j*num_groups-1)//num_groups+3*bar_width, 0.00022, "X", ha='center', va='bottom', fontsize=15)
 
-    pdb.set_trace()
     min_value = np.min(y[y > 0])
+
+    ax.text(
+        2.8,
+        72,
+        LOWERISBETTER,
+        ha="center",
+        fontsize=ISBETTER_FONTSIZE,
+        fontweight="bold",
+        color="midnightblue",
+    )
 
     #for j in range(num_groups):
     #    if np.isnan(y[j][2]):
