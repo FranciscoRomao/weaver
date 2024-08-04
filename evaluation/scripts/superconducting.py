@@ -81,15 +81,16 @@ def run(config):
             bound_circuit = qaoa_circuit.assign_parameters({cost_params: [np.pi / 2.123 for param in cost_params], mixer_params: [np.pi / 3.123 for param in mixer_params]})
             bound_circuit.measure_all()
             transpiled_circuits.append(transpile(bound_circuit, basis_gates=basis_gates, optimization_level=3))
+    
+    results = pd.DataFrame(columns=['instance_type', 'instance_info', 'n_variables', 'qaoa_depth', '1q_gates', '2q_gates', 'runtime', 'execution_time', 'eps'])
+    
+    basis_gates = ["u3", "cz"]
 
-    pdb.set_trace()
-    
-    results = pd.DataFrame(columns=['instance_type', 'instance_info', 'qaoa_depth', 'runtime', 'execution_time', 'eps'])
-    
-    basis_gates = ["u3", "id", "cz", "ccz", "cccz"]
 
     for circuit, instance_info in zip(transpiled_circuits, instance_clauses if instance_type == 'generated' else instances_names):
         print(f"Transpiling circuit {instance_info}")
+        n_variables = circuit.num_qubits
+        
         tmp = perf_counter()
         circuit = transpile(circuit, optimization_level=3, backend=backend)
         tmp = perf_counter()-tmp
@@ -97,8 +98,11 @@ def run(config):
 
         eps = calculate_expected_fidelity(circuit, backend)
 
+        gate_1q = circuit.count_ops()['x']
+        gate_2q = circuit.count_ops()['cx'] + circuit.count_ops()['sx'] + circuit.count_ops()['rz']
+
         #exec_time = compute_execution_time(circuit)
-        results.loc[len(results)] = [instance_type, instance_info, qaoa_depth, tmp, exec_time, eps]
+        results.loc[len(results)] = [instance_type, instance_info, n_variables, qaoa_depth, gate_1q, gate_2q, tmp, exec_time, eps]
     
     results.to_csv('./evaluation/results/superconducting_results.csv')
     
