@@ -19,8 +19,103 @@ WIDE_FIGSIZE = (13, 2.8)
 COLUMN_FIGSIZE = (6.5, 3.4)
 COLUMN_FIGSIZE_2 = (7.5, 4)
 
+hatches = [
+            "/",
+            "\\",
+            "//",
+            "\\\\",
+            "x",
+            ".",
+            ",",
+            "*",
+            "o",
+            "O",
+            "+",
+            "X",
+            "s",
+            "S",
+            "d",
+            "D",
+            "^",
+            "v",
+            "<",
+            ">",
+            "p",
+            "P",
+            "$",
+            "#",
+            "%",
+        ]
+
 plt.rcParams.update({"font.size": FONTSIZE})
 
+def stacked_grouped_bar_plot(ax, data:pd.DataFrame, value_labels:list[str], groups, group_labels=None, bar_labels=None, ylabel=None, title=None, xlabel=None, bar_width=2):
+
+    colors = sns.color_palette('pastel')
+
+    #xticks = [len(bar_labels)//len(groups)//2 + len(bar_labels)//len(groups)*i for i in range(len(groups))]
+    #ax = data.plot.bar(x='groups', y=value_labels, rot=0, width=bar_width, stacked=True, edgecolor='black', linewidth=1.5, alpha=0.7, color=colors, xticks=xticks, figsize=figsize)
+    ax = data.plot.bar(x='n_variables', y=value_labels, rot=0, stacked=True, edgecolor='black', linewidth=1.5, color=colors, figsize=COLUMN_FIGSIZE)
+
+    ##ax = sns.barplot(x='groups', y='max', data=data, hue='bar_labels', palette=colors, edgecolor='black', linewidth=2, alpha=0.7, legend=False, width=bar_width)
+    #ax = sns.barplot(x='groups', y='max', data=data, hue='bar_labels', palette=colors[2:3], edgecolor='black', linewidth=2, alpha=1, legend=False, width=bar_width)
+    ##ax = sns.barplot(x='groups', y=value_labels[0], data=data, hue='bar_labels', palette=colors[3:4], edgecolor='black', linewidth=2, alpha=0.7, legend=False, width=bar_width)
+    ##ax = sns.barplot(x='groups', y='min', data=data, hue='bar_labels', palette=colors[len(groups):], edgecolor='black', linewidth=2, alpha=0.7, legend=False, width=bar_width)
+#
+    ##for i in ax.containers:
+    ##    ax.bar_label(i, label_type='center', fmt='%.2f', fontweight='bold')
+
+    #pdb.set_trace()
+
+    #top_labels = [bar_labels[i] for i in range(len(bar_labels)) for _ in groups]
+#
+    #for bar, lab in zip(ax.patches[:len(bar_labels)], bar_labels):
+    #    plt.text(bar.get_x() + bar.get_width() / 2., 0, '%d' % int(lab), ha='center', va='bottom', fontweight='bold', color='black')
+
+    pdb.set_trace()
+#
+    ##ax = sns.barplot(x='groups', y=value_labels[1], data=data, hue='bar_labels', palette=colors[2:3], edgecolor='black', linewidth=2, alpha=1, legend=False, width=bar_width) 
+    #ax = sns.barplot(x='System', y=value_labels, data=data, hue='n_variables', palette=colors[3:4], edgecolor='black', linewidth=2, alpha=1, legend=False, width=bar_width)
+    ##for i in ax.containers:
+    ##ax.bar_label(i, label_type='center', labels=groups)
+    ##ax.bar_label(ax.containers[1], label_type='center', padding=2)
+#
+    ##ax = sns.barplot(x='groups', y='min', data=data, hue='bar_labels', palette=colors, edgecolor='black', linewidth=2, alpha=1)
+#
+    ##sns.set_color_codes('muted')
+    ##colors = sns.color_palette("pastel")
+    ##ax = sns.barplot(x='bar_labels', y='x2', hue='groups', data=data, label= palette=colors, edgecolor='black', linewidth=1.5)
+#
+    ##sns.set_color_codes('muted')
+    ##colors = sns.color_palette("muted")
+    ##ax = sns.barplot(x='bar_labels', y='x1', hue='groups', data=data, palette=colors, edgecolor='black', linewidth=1.5)
+
+    containers_groups1 = [ax.patches[i*(len(bar_labels)//len(groups)):(i+1)*(len(bar_labels)//len(groups))] for i in range(len(groups))]
+    containers_groups2 = [ax.patches[len(bar_labels)+i*(len(bar_labels)//len(groups)):len(bar_labels)+(i+1)*(len(bar_labels)//len(groups))] for i in range(len(groups))]
+
+    #for container,hatch,color in zip(containers_groups1, hatches, cycle(colors[:2])):
+    #    for bar in container:
+    #        bar.set_hatch(hatch)
+    #        bar.set_facecolor(color)
+#
+    #for container,hatch,color in zip(containers_groups2, hatches, cycle(colors[2:4])):
+    #    for bar in container:
+    #        bar.set_hatch(hatch)
+    #        bar.set_facecolor(color)
+
+    for bars, hatch in zip(ax.containers, hatches):
+        for bar in bars:
+            bar.set_hatch(hatch)
+
+    #plt.bar_label(fo)
+            
+    
+    plt.title(title, fontweight='bold')
+    #ax.set_xticklabels(groups)
+    #plt.xlabel(xlabel, color='black')
+    #plt.ylabel(ylabel, color='black')
+    #ax.legend(handles=[ax.patches[0], ax.patches[len(bar_labels)]], loc='upper left', labels=['Compilation Time', 'Execution Time'])
+    return ax
 
 def grouped_bar_plot(
     ax: plt.Axes,
@@ -86,12 +181,13 @@ def grouped_bar_plot(
     #plt.text((i+2)//num_groups + (i * bar_width), 0, "X", ha='center', va='bottom')
     #Set X on nan values
 
-
     for i in range(num_bars):
         y_bars = y[:, i]
         #yerr_bars = yerr[:, i]
 
         color, hatch = colors[i % len(colors)], hatches[i % len(hatches)]
+
+        # if it is the last group of bars add distance of 1.5
 
         ax.bar(
             x + (i * bar_width),
@@ -107,31 +203,17 @@ def grouped_bar_plot(
             zorder=zorder,
         )
 
-    for j in range(num_groups):
-        if np.isnan(y[j][1]):
-            ax.text((1+j*num_groups-1)//num_groups+1*bar_width, 0.000215, "X", ha='center', va='bottom', fontsize=11)
-    
-    for j in range(num_groups):
-        if np.isnan(y[j][3]):
-            ax.text((3+j*num_groups-1)//num_groups+3*bar_width, 0.000215, "X", ha='center', va='bottom', fontsize=11)
-
-    min_value = np.min(y[y > 0])
-    #1000 for fidelity plot
+    #5000 for fidelity plot
     #67 for compilation time plot
-    ax.text(
-        2.8,
-        4,
-        LOWERISBETTER,
-        ha="center",
-        fontsize=ISBETTER_FONTSIZE,
-        fontweight="bold",
-        color="midnightblue",
-    )
-
-    #for j in range(num_groups):
-    #    if np.isnan(y[j][2]):
-    #        ax.text((2+j*num_groups-1)//num_groups+2*bar_width, min_value, "X", ha='center', va='bottom', fontsize=15)
+    #1.3 for npulses plot
+    #2.6
+    #x position 2.8
     
+    #nan_n = 3
+    #for j in range(num_groups):
+    #    if np.isnan(y[j][nan_n]):
+    #        ax.text((nan_n+j*num_groups-1)//num_groups+nan_n*bar_width, 10**-1.31, "X", ha='center', va='bottom', fontsize=11, fontweight='bold')
+    #
     ax.set_xticks(x + ((num_bars - 1) / 2) * bar_width)
     ax.set_xticklabels(group_labels)
 
@@ -523,7 +605,6 @@ def save_figure(fig: plt.Figure, exp_name: str):
 # #         )
 #     ) 
 
-
 def plot_lines_2yaxis(xkey:str, xlabel: str, ykeys: list[str], labels: list[str], data: pd.DataFrame, filename: str):
 
     sns.set_theme()
@@ -554,9 +635,39 @@ def prepare_dataframe(df: pd.DataFrame, key: str) -> pd.DataFrame:
         .reset_index())
     return res_df
 
+# def calculate_figure_size(num_rows, num_cols):
+#     subplot_width_inches = 3.0  # Adjust this value based on your desired subplot width
 
+#     # Define the number of columns and rows of subplots
+#     num_cols = 2
+#     num_rows = 3
 
+#     # Calculate the total width and height based on the subplot width and number of columns and rows
+#     fig_width_inches = subplot_width_inches * num_cols
+#     fig_height_inches = fig_width_inches / 1.618 * num_rows  # Incorporate the golden ratio (1.618) for the height
 
+#     return fig_width_inches, fig_height_inches
+
+def plot_line(ax, xkey:str, xlabel: str, ykeys: list[str], labels: list[str], data: pd.DataFrame):
+
+    sns.set_theme()
+    sns.set_style("whitegrid")
+
+    sns.lineplot(ax=ax, data=data, x=xkey, y=ykeys[0], label=labels[0], markers='o')
+
+    ax.set_ylabel(labels[0], color='b')
+    ax.set_xlabel(xlabel)
+    
+    ax.legend(loc='upper left')
+
+def prepare_dataframe(df: pd.DataFrame, key: str) -> pd.DataFrame:
+    res_df = df.loc[df[key] > 0.0]
+    res_df = (
+        res_df.groupby("num_qubits")
+        .agg({key: ["mean", "sem"]})
+        .sort_values(by=["num_qubits"])
+        .reset_index())
+    return res_df
 
 # def calculate_figure_size(num_rows, num_cols):
 #     subplot_width_inches = 3.0  # Adjust this value based on your desired subplot width

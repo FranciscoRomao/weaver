@@ -112,6 +112,7 @@ def run(config):
         tmp = perf_counter()
         geyser_opt_circuit, n_pulses, pulses, distances = run_geyser(circuit, geyset_iterations)
         tmp = perf_counter()-tmp
+        pdb.set_trace()
         exec_time = compute_execution_time(geyser_opt_circuit)
         results.loc[len(results)] = [instance_type, instance_info, qaoa_depth, geyset_iterations, tmp, exec_time, n_pulses, pickle.dumps(geyser_opt_circuit.qasm())]
         results.to_csv('./evaluation/results/geyser_results.csv', index=False, mode='a')

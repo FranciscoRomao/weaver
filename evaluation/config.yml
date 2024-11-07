@@ -2,7 +2,7 @@ geyser:
   run:  
     iterations: 10
     instance_type: stored #generated (independent) or stored (dependent)
-    instance_clauses: [1] #uniform independent clauses
+    instance_clauses: [2] #uniform independent clauses
     instances_names: ['uf20-01.cnf',
                       'uf20-02.cnf',
                       'uf20-03.cnf',
@@ -12,37 +12,7 @@ geyser:
                       'uf20-07.cnf',
                       'uf20-08.cnf',
                       'uf20-09.cnf',
-                      'uf20-010.cnf',
-                      'uf50-01.cnf',
-                      'uf50-02.cnf',
-                      'uf50-03.cnf',
-                      'uf50-04.cnf',
-                      'uf50-05.cnf',
-                      'uf50-06.cnf',
-                      'uf50-07.cnf',
-                      'uf50-08.cnf',
-                      'uf50-09.cnf',
-                      'uf50-010.cnf',
-                      'uf75-01.cnf',
-                      'uf75-02.cnf',
-                      'uf75-03.cnf',
-                      'uf75-04.cnf',
-                      'uf75-05.cnf',
-                      'uf75-06.cnf',
-                      'uf75-07.cnf',
-                      'uf75-08.cnf',
-                      'uf75-09.cnf',
-                      'uf75-010.cnf',
-                      'uf100-01.cnf',
-                      'uf100-02.cnf',
-                      'uf100-03.cnf',
-                      'uf100-04.cnf',
-                      'uf100-05.cnf',
-                      'uf100-06.cnf',
-                      'uf100-07.cnf',
-                      'uf100-08.cnf',
-                      'uf100-09.cnf',
-                      'uf100-010.cnf']
+                      'uf20-010.cnf']
     qaoa_depth: 1
 
 atomique:
@@ -114,20 +84,19 @@ instances_to_qasm:
 plot:
   plot:
     n_variables: [20, 50, 75, 100, 150, 250]
-    plot_property: weaver_gates
+    plot_property: fidelity_two
     geyser_input: evaluation/results/geyser_results.csv
     atomique_input: evaluation/results/atomique_results.csv
     superconducting_input: evaluation/results/superconducting_results.csv
     dpqa_input: evaluation/results/dpqa_results.csv
     weaver_input: weaver/results/fpqa-1.csv
-    output_file: evaluation/results/weaver_gates.pdf
+    output_file: evaluation/results/fidelity_two.pdf
 
 instances_to_dpqa_json:
   run:
-    instance_type: generated #generated (independent) or stored (dependent)
+    instance_type: stored #generated (independent) or stored (dependent)
     instance_clauses: [1] #uniform independent clauses
-    instances_names: ['uf20-01.cnf',
-                      'uuf50-01.cnf',]
+    instances_names: ['uf20-010.cnf',]
     qaoa_depth: 1
 
 dpqa:

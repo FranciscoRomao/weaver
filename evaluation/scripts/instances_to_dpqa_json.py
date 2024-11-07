@@ -25,6 +25,7 @@ def run(config):
 
     transpiled_circuits = []
     
+
     if instance_type == 'generated':
         instance_clauses = config['instance_clauses']
 
@@ -56,6 +57,7 @@ def run(config):
 
     cz_gates = []
 
+
     #Save the circuit in qasm format
     if instance_type == 'generated':
         for i in range(len(transpiled_circuits)):
@@ -79,7 +81,7 @@ def run(config):
                 cz_gates[i].append([instr[1][0].index, instr[1][1].index])
 
     n_variables = [transpiled_circuits[i].num_qubits for i in range(len(transpiled_circuits))]
-
+    
     transformed_list = {}
     for i in range(len(transpiled_circuits)):
         transformed_list[str(n_variables[i])] = [[]]
@@ -100,6 +102,6 @@ def run(config):
     #        name = 'generated_' + str(qaoa_depth) + 'n' + str(name)
     #    with open('./evaluation/benchmarks/QASMBench/' + name + '.qasm', 'w') as f:
     #        f.write(circuit.qasm())
-    
+
 def plot(config):
     pass
