@@ -1,0 +1,94 @@
+compiler:
+  name: fpqac_generic
+  print_log: False
+  results_path: results
+
+backend_params:
+  base_set: default1
+  retranspile_changes: {}
+  nonretranspile_changes: {}
+  backer_penalty: [0]
+
+#defaults1 = {
+#    "U3_GATE_FIDELITY": 0.999,
+#    "U3_GATE_DURATION": 0.5, # in microseconds
+#    "CZ_GATE_FIDELITY": 0.995,
+#    "CZ_GATE_DURATION": 0.2, # in microseconds
+#    "CCZ_GATE_FIDELITY": 0.98,
+#    "CCZ_GATE_DURATION": 1, # in microseconds
+#    "QUBIT_DECAY":  1e08, # t1 in microseconds 
+#    "QUBIT_DEPHASING": 1.5e06, # t2 in microseconds
+#    "SHUTTLE_FIDELITY": 1,
+#    "SHUTTLING_SPEED": 0.55, # in micrometers/microseconds
+#    "TRAP_SWAP_DURATION": 20,
+#    "INTERACTION_RADIUS": 2.0, # in micrometers
+#    "RESTRICTION_RADIUS": 4.0 # in micrometers
+#    "TRAP_TRANSFER_PROXIMITY": 1e-05, # in micrometers
+#    "AOD_BEAM_RPOXIMITY": 1e-03 # in micrometers
+
+benchmarks:
+- name: QASMBench
+  type: ['a1', 'b1', 'c1', 'd1', 'e1', 'f1', 'g1', 'h1', 'i1', 'j1']
+  n_qubits: [20, 50, 75, 100, 150, 250]
+  instances_names: ['uf20-01.qasm',
+                    'uf20-02.qasm',
+                    'uf20-03.qasm',
+                    'uf20-04.qasm',
+                    'uf20-05.qasm',
+                    'uf20-06.qasm',
+                    'uf20-07.qasm',
+                    'uf20-08.qasm',
+                    'uf20-09.qasm',
+                    'uf20-010.qasm',
+                    'uuf50-01.qasm',
+                    'uuf50-02.qasm',
+                    'uuf50-03.qasm',
+                    'uuf50-04.qasm',
+                    'uuf50-05.qasm',
+                    'uuf50-06.qasm',
+                    'uuf50-07.qasm',
+                    'uuf50-08.qasm',
+                    'uuf50-09.qasm',
+                    'uuf50-010.qasm',
+                    'uuf75-01.qasm',
+                    'uuf75-02.qasm',
+                    'uuf75-03.qasm',
+                    'uuf75-04.qasm',
+                    'uuf75-05.qasm',
+                    'uuf75-06.qasm',
+                    'uuf75-07.qasm',
+                    'uuf75-08.qasm',
+                    'uuf75-09.qasm',
+                    'uuf75-010.qasm',
+                    'uuf100-01.qasm',
+                    'uuf100-02.qasm',
+                    'uuf100-03.qasm',
+                    'uuf100-04.qasm',
+                    'uuf100-05.qasm',
+                    'uuf100-06.qasm',
+                    'uuf100-07.qasm',
+                    'uuf100-08.qasm',
+                    'uuf100-09.qasm',
+                    'uuf100-010.qasm',
+                    'uuf150-01.qasm',
+                    'uuf150-02.qasm',
+                    'uuf150-03.qasm',
+                    'uuf150-04.qasm',
+                    'uuf150-05.qasm',
+                    'uuf150-06.qasm',
+                    'uuf150-07.qasm',
+                    'uuf150-08.qasm',
+                    'uuf150-09.qasm',
+                    'uuf150-010.qasm',
+                    'uuf250-01.qasm',
+                    'uuf250-02.qasm',
+                    'uuf250-03.qasm',
+                    'uuf250-04.qasm',
+                    'uuf250-05.qasm',
+                    'uuf250-06.qasm',
+                    'uuf250-07.qasm',
+                    'uuf250-08.qasm',
+                    'uuf250-09.qasm',
+                    'uuf250-010.qasm']
+
+count_gates: True
