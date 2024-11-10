@@ -15,8 +15,15 @@ from pysat.formula import CNF
 import json
 import os
 
-instances_names = ['uf20-09.cnf',
-                    'uf20-010.cnf']
+#instances_names = ['uf20-09.cnf',
+#                    'uf20-010.cnf']
+
+instances_names = ['uf3-01.cnf',
+                    'uf3-02.cnf',
+                    'uf3-03.cnf',
+                    'uf3-04.cnf',
+                    'uf3-05.cnf']
+
 qaoa_depth = 1
 
 def run():
@@ -27,13 +34,13 @@ def run():
     
     #if not isinstance(instances_names, list):
     #    instances_names = [instances_names]
-#
+
     #for file_name in instances_names:
     #    tmp_hamiltonion = Max3satHamiltonian('benchmarks/max3SAT/'+file_name)
     #    tmp_qaoa = QAOA(tmp_hamiltonion)#.naive_qaoa_circuit(qaoa_depth)
     #    qaoa_circuit, cost_params, mixer_params = tmp_qaoa.naive_qaoa_circuit(qaoa_depth)
     #    qaoas_instances.append([qaoa_circuit, cost_params, mixer_params])
-#
+
     #for i, qaoas_instance in enumerate(qaoas_instances):
     #    qaoa_circuit, cost_params, mixer_params = qaoas_instance
     #    print(f"Transpiling circuit {i} out of {len(qaoas_instances)}")
@@ -48,7 +55,7 @@ def run():
     #        continue
     #    with open('benchmarks/DPQA/' + instances_names[i].replace('.cnf', '.qasm'), 'x') as f:
     #        f.write(circuit.qasm())
-
+    
     for name in instances_names:
         with open('benchmarks/QASMBench/' + name.replace('.cnf', '.qasm'), 'r') as f:
             qasm = f.read()

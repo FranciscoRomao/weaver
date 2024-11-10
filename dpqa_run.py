@@ -22,14 +22,22 @@ t2_time = 1.5 * 10**6
 
 qaoa_depth = 1
 
-instances_names = ['uf20-09.cnf',
-                    'uf20-010.cnf']
+#instances_names = ['uf20-09.cnf',
+#                    'uf20-010.cnf']
+
+instances_names = ['uf3-01.cnf',
+                    'uf3-02.cnf',
+                    'uf3-03.cnf',
+                    'uf3-04.cnf',
+                    'uf3-05.cnf']
 
 def run():
 
     basis_gates = ["rx", "rz", "x", "y", "z", "h", "id", "cz"]
     qaoas_instances = []
     transpiled_circuits = []
+
+    results = pd.DataFrame(columns=['n_variables', 'qaoa_depth', '1q_gates', '2q_gates', 'compile_time', 'execution_time', 'eps'])
 
     for name in instances_names:
         variables = name.split('-')[0].replace('uf', '')
@@ -42,8 +50,8 @@ def run():
             circuit = QuantumCircuit.from_qasm_file(circuit_file)
     
         tmp = DPQA(
-            name=str(variables),
-            dir='evaluation/results/',
+            name=str(variables) + '_' + str(variant),
+            dir='results/',
             print_detail=True
         )
 
@@ -55,9 +63,9 @@ def run():
 
         compile_time = tmp.result_json['duration']
 
-        filename = 'evaluation/results/' + str(variables) + '.json'
+        filename = 'results/' + str(variables) + '_' + str(variant) + '.json'
 
-        codegen = CodeGen(filename, dir='evaluation/results/')
+        codegen = CodeGen(filename, dir='results/')
 
         codegen.builder(no_transfer=False).emit_full()
 
@@ -102,14 +110,14 @@ def run():
 
         #runtime = compile_time + execution_time
 
-        results = pd.DataFrame(columns=['n_variables', 'qaoa_depth', '1q_gates', '2q_gates', 'compile_time', 'execution_time', 'eps'])
+        pdb.set_trace()
 
         #results.to_csv('./evaluation/results/dpqa_results.csv')
 
         results.loc[len(results)] = [variables, qaoa_depth, circuit.count_ops()['u3'], n_cz, compile_time, total_execution_time, eps]
 
     #if './evaluation/results/dpqa_results.csv' exists, append to it, else create it
-    if not os.path.isfile('./evaluation/results/dpqa_results.csv'):
-        results.to_csv('./evaluation/results/dpqa_results.csv')
+    if not os.path.isfile('results/dpqa_results.csv'):
+        results.to_csv('results/dpqa_results.csv')
     else:
-        results.to_csv('./evaluation/results/dpqa_results.csv', index=False, mode='a', header=False)
+        results.to_csv('results/dpqa_results.csv', index=False, mode='a', header=False)

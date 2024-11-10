@@ -20,11 +20,11 @@ def main():
     #action = sys.argv[2]
 
     #instances_to_qasm.run()
-    atomique_run.run()
+    #atomique_run.run()
     #superconducting_run.run()
     #geyser_run.run()
     #weaver_run.run()
-    #instances_to_dpqa_json.run()
+    instances_to_dpqa_json.run()
     #dpqa_run.run()
     
     #plot.plot_compilation_time()
