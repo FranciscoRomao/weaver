@@ -83,7 +83,7 @@ def main(args_config, args_pdb, opts, printing=True, multiprocessing=False):
             stats = get_n2q_interation_stats(benchmark.circ)
             avg_2q = stats["n_2q_gate_qubit_list_mean"]
             avg_inter = stats["interact_qubit_list_mean"]
-            print(f"& {n_2q_gate} & {n_1q_gate} & {avg_2q:.1f} & {avg_inter:.1f}")
+            #print(f"& {n_2q_gate} & {n_1q_gate} & {avg_2q:.1f} & {avg_inter:.1f}")
 
     if printing:
         print("Start Compiling...")
