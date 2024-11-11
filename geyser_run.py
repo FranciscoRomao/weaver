@@ -20,19 +20,16 @@ ccz_time = 1
 qaoa_depth = 1
 geyser_iterations = 10
 
-#instances_names = [ 'uf20-01.cnf',
-#                    'uf20-02.cnf',
-#                    'uf20-03.cnf',
-#                    'uf20-04.cnf',
-#                    'uf20-05.cnf',
-#                    'uf20-06.cnf',
-#                    'uf20-07.cnf',
-#                    'uf20-08.cnf',
-#                    'uf20-09.cnf',
-#                    'uf20-010.cnf']
-
 instances_names = [ 'uf20-01.cnf',
-                   'uf20-02.cnf']
+                    'uf20-02.cnf',
+                    'uf20-03.cnf',
+                    'uf20-04.cnf',
+                    'uf20-05.cnf',
+                    'uf20-06.cnf',
+                    'uf20-07.cnf',
+                    'uf20-08.cnf',
+                    'uf20-09.cnf',
+                    'uf20-010.cnf']
 
 
 def run_geyser(circuit, iterations):

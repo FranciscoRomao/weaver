@@ -22,15 +22,23 @@ t2_time = 1.5 * 10**6
 
 qaoa_depth = 1
 
-#instances_names = ['uf20-09.cnf',
-#                    'uf20-010.cnf']
+instances_names = ['uf20-01.cnf',
+                    'uf20-02.cnf',
+                    'uf20-03.cnf',
+                    'uf20-04.cnf',
+                    'uf20-05.cnf',
+                    'uf20-06.cnf',
+                    'uf20-07.cnf',
+                    'uf20-08.cnf',
+                    'uf20-09.cnf',
+                    'uf20-10.cnf',]
 
-instances_names = ['uf3-01.cnf',
-                    'uf3-02.cnf',
-                    'uf3-03.cnf',
-                    'uf3-04.cnf',
-                    'uf3-05.cnf']
-
+#instances_names = ['uf3-01.cnf',
+#                    'uf3-02.cnf',
+#                    'uf3-03.cnf',
+#                    'uf3-04.cnf',
+#                    'uf3-05.cnf']
+#
 def run():
 
     basis_gates = ["rx", "rz", "x", "y", "z", "h", "id", "cz"]
@@ -109,9 +117,6 @@ def run():
                 n_cz += 1
 
         #runtime = compile_time + execution_time
-
-        pdb.set_trace()
-
         #results.to_csv('./evaluation/results/dpqa_results.csv')
 
         results.loc[len(results)] = [variables, qaoa_depth, circuit.count_ops()['u3'], n_cz, compile_time, total_execution_time, eps]

@@ -15,14 +15,23 @@ from pysat.formula import CNF
 import json
 import os
 
-#instances_names = ['uf20-09.cnf',
-#                    'uf20-010.cnf']
+instances_names = ['uf20-00.cnf',
+                    'uf20-01.cnf',
+                    'uf20-02.cnf',
+                    'uf20-03.cnf',
+                    'uf20-04.cnf',
+                    'uf20-05.cnf',
+                    'uf20-06.cnf',
+                    'uf20-07.cnf',
+                    'uf20-08.cnf',
+                    'uf20-09.cnf',
+                    'uf20-10.cnf',]
 
-instances_names = ['uf3-01.cnf',
-                    'uf3-02.cnf',
-                    'uf3-03.cnf',
-                    'uf3-04.cnf',
-                    'uf3-05.cnf']
+#instances_names = ['uf3-01.cnf',
+#                    'uf3-02.cnf',
+#                    'uf3-03.cnf',
+#                    'uf3-04.cnf',
+#                    'uf3-05.cnf']
 
 qaoa_depth = 1
 
@@ -30,8 +39,6 @@ def run():
 
     basis_gates = ["u3", "cz"]
     qaoas_instances = []
-    transpiled_circuits = []
-    
     #if not isinstance(instances_names, list):
     #    instances_names = [instances_names]
 
@@ -48,7 +55,6 @@ def run():
     #    bound_circuit.measure_all()
     #    transpiled_circuits.append(transpile(bound_circuit, basis_gates=basis_gates, optimization_level=3))
 
-    cz_gates = []
 
     #for i, circuit in enumerate(transpiled_circuits):
     #    if os.path.exists('benchmarks/DPQA/' + instances_names[i].replace('.cnf', '.qasm')):
@@ -57,34 +63,33 @@ def run():
     #        f.write(circuit.qasm())
     
     for name in instances_names:
+        n_variables = int(name.split('-')[0].replace('uf', ''))
+        n_variant = name.split('-')[1].strip('.cnf')
+
         with open('benchmarks/QASMBench/' + name.replace('.cnf', '.qasm'), 'r') as f:
             qasm = f.read()
-            transpiled_circuits.append(QuantumCircuit.from_qasm_str(qasm))
-    
+            #transpiled_circuit.append(QuantumCircuit.from_qasm_str(qasm))
+            transpiled_circuit = QuantumCircuit.from_qasm_str(qasm)
+        
+        cz_gates = []
 
-    for i,circuit in enumerate(transpiled_circuits):
-        cz_gates.append([])
-        for instr in circuit.data:
+        for instr in transpiled_circuit.data:
             if instr[0].name == 'cz':
-                cz_gates[i].append([instr[1][0].index, instr[1][1].index])
+                cz_gates.append([instr[1][0].index, instr[1][1].index])
 
-    n_variables = [transpiled_circuits[i].num_qubits for i in range(len(transpiled_circuits))]
-    
-    transformed_list = {}
-    for i in range(len(transpiled_circuits)):
-        transformed_list[str(n_variables[i])] = [[]]
-    
+        #n_variables = [transpiled_circuits[i].num_qubits for i in range(len(transpiled_circuits))]
 
-    for i in range(len(transpiled_circuits)):
-        n_variant = instances_names[i].split('-')[1].strip('.cnf')
-        for cz in cz_gates[i]:
+        transformed_list = {}
+        transformed_list[str(n_variables)] = [[]]
+
+        for cz in cz_gates:
             #check if the last one added is not the same
-            if transformed_list[str(n_variables[i])][0] == []:
-                transformed_list[str(n_variables[i])][0].append([cz[0], cz[1]])
-            elif transformed_list[str(n_variables[i])][0][-1] != [cz[0], cz[1]]:
-                transformed_list[str(n_variables[i])][0].append([cz[0], cz[1]])
+            if transformed_list[str(n_variables)][0] == []:
+                transformed_list[str(n_variables)][0].append([cz[0], cz[1]])
+            elif transformed_list[str(n_variables)][0][-1] != [cz[0], cz[1]]:
+                transformed_list[str(n_variables)][0].append([cz[0], cz[1]])
 
-        with open(f"benchmarks/DPQA/graph{n_variables[i]}_{n_variant}.json", "w") as outfile:
+        with open(f"benchmarks/DPQA/graph{n_variables}_{n_variant}.json", "w") as outfile:
             json.dump(transformed_list, outfile, indent=4)
 
     #for circuit, name in zip(transpiled_circuits, instance_clauses if instance_type == 'generated' else instances_names):

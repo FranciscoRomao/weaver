@@ -15,22 +15,40 @@ def load_config(config_file):
         return yaml.safe_load(f)
 
 def main():
-    #config = load_config('evaluation/config.yml')
-    #evaluation_script = sys.argv[1]
-    #action = sys.argv[2]
-
-    #instances_to_qasm.run()
-    #atomique_run.run()
-    #superconducting_run.run()
-    #geyser_run.run()
-    #weaver_run.run()
-    instances_to_dpqa_json.run()
-    #dpqa_run.run()
     
-    #plot.plot_compilation_time()
-    #plot.plot_execution_time()
-    #plot.plot_fidelity()
-    #plot.plot_analysis()
+
+    print('Transpiling MAX-3SAT instances to QASM circuits')
+    instances_to_qasm.run()
+    
+    print('Running Atomique')
+    atomique_run.run()
+
+    print('Running Superconducting (Qiskit)')
+    superconducting_run.run()
+    
+    print('Running Geyser')
+    geyser_run.run()
+    
+    print('Running Weaver')
+    weaver_run.run()
+
+    print('Transpiling QASM circuits to DPQA JSON')
+    instances_to_dpqa_json.run()
+    
+    print('Running DPQA')
+    dpqa_run.run()
+    
+    print('Plotting compilation time comparison')
+    plot.plot_compilation_time()
+
+    print('Plotting execution time comparison')
+    plot.plot_execution_time()
+    
+    print('Plotting fidelity comparison')
+    plot.plot_fidelity()
+    
+    print('Plotting analysis plots')
+    plot.plot_analysis()
 
 if __name__ == "__main__":
     main()
