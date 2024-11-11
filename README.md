@@ -1,4 +1,6 @@
-# Overview
+# Weaver
+
+## Overview
 This artifact includes Weaver's quantum optimization framework and baseline FPQA compilers, enabling comparisons across execution time, compilation time, and fidelity metrics. The project uses benchmark instances from the SATLIB repository to evaluate the efficiency and performance of different quantum compilers on MAX-3SAT problem instances, with results replicating the figures presented in the accompanying research paper.
 This artifact includes Weaver, which features an optimized compilation procedure for neutral atoms based on the MAX-3SAT formulation, along with the following baseline FPQA compilers for comparison:
 
@@ -7,7 +9,7 @@ This artifact includes Weaver, which features an optimized compilation procedure
 - Qiskit (used for a superconducting circuit baseline)
 - Weaver achieves significant improvements over baseline methods, with up to a 10^3x faster execution time, 4.4x faster compilation time, and 10% average improvement in fidelity.
 
-# Requirements
+## Requirements
 To run the benchmarking suite, please ensure you have:
 
 - Python 3.11.2 or higher.
@@ -22,7 +24,7 @@ Additional Python packages listed in pyproject.toml:
 
 The pyproject.toml file automatically manages these dependencies when using PDM.
 
-# Installation
+## Installation
 Set up a virtual environment of your choice (or use the default method below):
 
 1. Inicialize virtual enviroment
@@ -42,7 +44,7 @@ This setup will configure the required dependencies within the virtual environme
 To reproduce the results, navigate to the main folder and run:
 `python run.py`
 
-# Workflow Overview
+## Workflow Overview
 Running run.py will execute several scripts sequentially to process MAX-3SAT instances, run the compilers, and produce plots. Below is a summary of each stage, including approximate runtimes:
 
 1. Transpiling MAX-3SAT Instances to Quantum Circuits (Approx. 10 minutes): Converts MAX-3SAT instances into QAOA quantum circuits in QASM format.
@@ -65,5 +67,5 @@ Running run.py will execute several scripts sequentially to process MAX-3SAT ins
 - Fidelity Comparison
 - Analysis Plots (with complexity metrics and CCZ fidelity thresholds)
 
-# Evaluation and Expected Results
+## Evaluation and Expected Results
 The script will output runtime information for each step, providing progress updates and preventing confusion if stages take longer. Variations in output plots compared to the paper should be minimal (not exceeding 5%).
