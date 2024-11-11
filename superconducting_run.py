@@ -90,7 +90,6 @@ def run():
 
     basis_gates = ["rx", "rz", "x", "y", "z", "h", "id", "cz"]
     
-    #instance_type = config['instance_type']
     qaoas_instances = []
     backend = FakeWashingtonV2()
 

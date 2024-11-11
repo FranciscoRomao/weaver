@@ -15,16 +15,15 @@ def load_config(config_file):
         return yaml.safe_load(f)
 
 def main():
-    
 
     print('Transpiling MAX-3SAT instances to QASM circuits')
     instances_to_qasm.run()
     
     print('Running Atomique')
-    atomique_run.run()
+    atomique_run.run() # 30 minutes
 
     print('Running Superconducting (Qiskit)')
-    superconducting_run.run()
+    superconducting_run.run() # 
     
     print('Running Geyser')
     geyser_run.run()

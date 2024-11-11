@@ -82,7 +82,7 @@ def run():
     
     for file_name in instances_names:
         tmp_hamiltonion = Max3satHamiltonian('benchmarks/max3SAT/'+file_name)
-        tmp_qaoa = QAOA(tmp_hamiltonion)#.naive_qaoa_circuit(qaoa_depth)
+        tmp_qaoa = QAOA(tmp_hamiltonion)
         qaoa_circuit, cost_params, mixer_params = tmp_qaoa.naive_qaoa_circuit(qaoa_depth)
         qaoas_instances.append([qaoa_circuit, cost_params, mixer_params])
 
@@ -93,7 +93,6 @@ def run():
         bound_circuit.measure_all()
         transpiled_circuits.append(transpile(bound_circuit, basis_gates=basis_gates, optimization_level=3))
         
-    pdb.set_trace()
     for circuit, name in zip(transpiled_circuits, instances_names):
         with open('benchmarks/QASMBench/' + name.strip('.cnf') + '.qasm', 'w') as f:
             f.write(circuit.qasm())

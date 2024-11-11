@@ -402,7 +402,7 @@ def main_arb():
         for n_q in [5, 10, 20, 50, 100]:
             # for n_q in [5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]:
             res_all = []
-            print(n_q)
+            #print(n_q)
 
             for i in range(10):
                 circ_name = f"baseline/qiskit_fpqa/qiskit_fpqa{n_rows}_{n_aods}/arb/q{n_q}_g{n_g}/i{i}.qasm"

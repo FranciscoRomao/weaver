@@ -15,8 +15,7 @@ from pysat.formula import CNF
 import json
 import os
 
-instances_names = ['uf20-00.cnf',
-                    'uf20-01.cnf',
+instances_names = ['uf20-01.cnf',
                     'uf20-02.cnf',
                     'uf20-03.cnf',
                     'uf20-04.cnf',

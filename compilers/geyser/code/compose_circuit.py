@@ -163,7 +163,6 @@ class ComposeCircuit:
 
             if comp_pulses > original_pulses:
                 return ret_block, original_pulses, distance
-            print("Composing block, distance: ", distance)
             res = dual_annealing(
                 self.score,
                 bounds=bounds,
@@ -181,7 +180,6 @@ class ComposeCircuit:
                 distance = res.fun
                 params = res.x
                 
-        print("Composed block, distance: ", distance)
 
         index = 0
         comp_block = QuantumCircuit(block.num_qubits, name=block.name)
@@ -227,7 +225,6 @@ class ComposeCircuit:
         #for i in original_blocks:
         #    composed_blocks_and_pulse.append(self.compose_block(i))
     
-        print(composed_blocks_and_pulse)
         composed_blocks = [block for block, _, _ in composed_blocks_and_pulse]
         pulses = [pulse for _, pulse, _ in composed_blocks_and_pulse]
         pulses = sum(pulses)

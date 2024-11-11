@@ -17,7 +17,7 @@ class ArbitraryDesignedBenchmark(Benchmark):
         self.n_gates = n_gates
         self.i = i
         self.path = f"benchmarks/arbitrary/designed/q{n_qubits}/ng{n_gates}/maxd{max_distance_2q}_ninter{n_interact_q}/i{i}.qasm"
-        print(self.path)
+        #print(self.path)
         self.circ = QuantumCircuit.from_qasm_file(self.path)
         self.circ.remove_final_measurements()
 
@@ -29,7 +29,7 @@ class ArbitraryBenchmark(Benchmark):
         self.n_gates = n_gates
         self.i = i
         self.path = f"benchmarks/arbitrary/rand/q{n_qubits}_g{n_gates}/i{i}.qasm"
-        print(self.path)
+        #print(self.path)
         self.circ = QuantumCircuit.from_qasm_file(self.path)
         self.circ.remove_final_measurements()
 
@@ -39,7 +39,7 @@ class SupermarqBenchmark(Benchmark):
         super().__init__()
         self.type = type
         self.path = f"benchmarks/supermarq/supermarq_{type}_n{n_qubits}.qasm"
-        print(self.path)
+        #print(self.path)
         self.circ = QuantumCircuit.from_qasm_file(self.path)
         self.n_qubits = self.circ.num_qubits
         self.circ.remove_final_measurements()
@@ -50,7 +50,7 @@ class GeyserBenchmark(Benchmark):
         super().__init__()
         self.type = type
         self.path = f"benchmarks/geyser/{type}_n{n_qubits}.qasm"
-        print(self.path)
+        #print(self.path)
         self.circ = QuantumCircuit.from_qasm_file(self.path)
         self.n_qubits = self.circ.num_qubits
         self.circ.remove_final_measurements()
@@ -61,7 +61,7 @@ class QASMBenchmark(Benchmark):
         super().__init__()
         self.type = type
         self.path = f"benchmarks/QASMBench/{type}_n{n_qubits}.qasm"
-        print(self.path)
+        #print(self.path)
         self.circ = QuantumCircuit.from_qasm_file(self.path)
         self.n_qubits = self.circ.num_qubits
         self.circ.remove_final_measurements()
@@ -70,7 +70,7 @@ class QASMBench(Benchmark):
     def __init__(self, instance):
         super().__init__()
         self.path = f"benchmarks/QASMBench/{instance}"
-        print(self.path)
+        #print(self.path)
         self.circ = QuantumCircuit.from_qasm_file(self.path)
         self.n_qubits = self.circ.num_qubits
         self.circ.remove_final_measurements()
@@ -81,7 +81,7 @@ class AlgorithmBenchmark(Benchmark):
         super().__init__()
         self.n_qubits = n_qubits
         self.path = f"benchmarks/algorithm/{type}_n{n_qubits}.qasm"
-        print(self.path)
+        #print(self.path)
         self.circ = QuantumCircuit.from_qasm_file(self.path)
         self.circ.remove_final_measurements()
 
@@ -130,7 +130,7 @@ class QsimRandBenchmark(Benchmark):
         self.p = p
         self.i = i
         self.path = f"benchmarks/qsim/rand/q{n_qubits}_{keep_length}_p{p}/i{i}.txt"
-        print(self.path)
+        #print(self.path)
 
         with open(self.path, "r") as fid:
             self.pauli_strings = eval(fid.read())[0:keep_length]

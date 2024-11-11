@@ -41,7 +41,6 @@ def run_geyser(circuit, iterations):
     circuits['Original'] = circuit
     
     for i in range(iterations):
-        print(f"Geyser mapping and blocking iteration {i+1}")
         mapper = MapCircuit(circuits['Original'])
         layout = mapper.get_layout()
         blocks = mapper.get_blocks()
@@ -55,7 +54,6 @@ def run_geyser(circuit, iterations):
             min_num_blocks = num_blocks
 
     composer = ComposeCircuit("blabla", layout, circuits['Blocked'])
-    print("Circuit composed.")
     return (composer.get_composed_circuit(), composer.n_pulses, composer.pulses, composer.distances)
 
 def compute_execution_time(circuit):
