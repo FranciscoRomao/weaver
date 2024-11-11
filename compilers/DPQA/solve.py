@@ -838,7 +838,7 @@ class DPQA:
             step = 1
             a, c, r, x, y = self.solver_init(step+1)
             self.get_front_layer()
-            print(f"gate batch {t_curr}")
+            #print(f"gate batch {t_curr}")
 
             (self.dpqa).push()  # gate related constraints
             t = self.constraint_gate_batch(step+1, c, r, x, y)
@@ -853,7 +853,7 @@ class DPQA:
             solved_batch_gates = True if (self.dpqa).check() == sat else False
 
             while not solved_batch_gates:
-                print(f"    no solution, bound_gate={bound_gate} too large")
+                #print(f"    no solution, bound_gate={bound_gate} too large")
                 (self.dpqa).pop()  # pop to reduce gate bound
                 bound_gate -= 1
                 if bound_gate <= 0:
@@ -873,7 +873,7 @@ class DPQA:
                 solved_batch_gates =\
                     True if (self.dpqa).check() == sat else False
 
-            print(f"    found solution with {bound_gate} gates in {step} step")
+            #print(f"    found solution with {bound_gate} gates in {step} step")
             self.process_partial_solution(step+1, a, c, r, x, y, t)
             (self.dpqa).pop()  # the gate bound constraints for solved batch
             t_curr += 1

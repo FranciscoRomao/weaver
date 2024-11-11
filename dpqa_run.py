@@ -31,7 +31,7 @@ instances_names = ['uf20-01.cnf',
                     'uf20-07.cnf',
                     'uf20-08.cnf',
                     'uf20-09.cnf',
-                    'uf20-10.cnf',]
+                    'uf20-010.cnf',]
 
 #instances_names = ['uf3-01.cnf',
 #                    'uf3-02.cnf',
@@ -48,6 +48,7 @@ def run():
     results = pd.DataFrame(columns=['n_variables', 'qaoa_depth', '1q_gates', '2q_gates', 'compile_time', 'execution_time', 'eps'])
 
     for name in instances_names:
+        print(f"Transpiling circuit {name.replace('.cnf', '.qasm')}")
         variables = name.split('-')[0].replace('uf', '')
         variant = name.split('-')[1].replace('.cnf', '')
 
@@ -60,7 +61,7 @@ def run():
         tmp = DPQA(
             name=str(variables) + '_' + str(variant),
             dir='results/',
-            print_detail=True
+            print_detail=False
         )
 
         tmp.setArchitecture([16, 16, 16, 16])
@@ -92,23 +93,13 @@ def run():
 
         t_busy = circuit.count_ops()['u3'] * 0.5 + circuit.count_ops()['cz'] * 0.2
 
-        print('t_busy:', t_busy)
-
         t_idle = total_execution_time - t_busy
-
-        print('t_idle:', t_idle)
 
         t_eff = t1_time*t2_time/(t1_time+t2_time)
 
-        print('t_eff:', t_eff)
-
         tota_gate_fid = gate_1q_fid**circuit.count_ops()['u3'] * gate_2q_fid**circuit.count_ops()['cz']
 
-        print('tota_gate_fid:', tota_gate_fid)
-
         eps = e**(-t_idle/t_eff)*tota_gate_fid
-
-        print('eps:', eps)
 
         n_cz = 0
 
@@ -116,12 +107,8 @@ def run():
             if 'Rydberg' in i['name']:
                 n_cz += 1
 
-        #runtime = compile_time + execution_time
-        #results.to_csv('./evaluation/results/dpqa_results.csv')
-
         results.loc[len(results)] = [variables, qaoa_depth, circuit.count_ops()['u3'], n_cz, compile_time, total_execution_time, eps]
 
-    #if './evaluation/results/dpqa_results.csv' exists, append to it, else create it
     if not os.path.isfile('results/dpqa_results.csv'):
         results.to_csv('results/dpqa_results.csv')
     else:

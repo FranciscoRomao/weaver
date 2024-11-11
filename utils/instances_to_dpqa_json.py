@@ -24,7 +24,7 @@ instances_names = ['uf20-01.cnf',
                     'uf20-07.cnf',
                     'uf20-08.cnf',
                     'uf20-09.cnf',
-                    'uf20-10.cnf',]
+                    'uf20-010.cnf',]
 
 #instances_names = ['uf3-01.cnf',
 #                    'uf3-02.cnf',

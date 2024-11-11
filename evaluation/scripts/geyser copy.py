@@ -45,7 +45,6 @@ def run_geyser(circuit, iterations):
     return (composer.get_composed_circuit(), composer.n_pulses, composer.pulses, composer.distances)
 
 def compute_execution_time(circuit):
-    
     basis_gates = ["u3", "cz", "ccz"]
     circuit = transpile(circuit, basis_gates=basis_gates, optimization_level=0)
     dag = circuit_to_dag(circuit)
@@ -64,7 +63,6 @@ def compute_execution_time(circuit):
     return total_time
 
 def run(config):
-
     basis_gates = ["rx", "rz", "x", "y", "z", "h", "id", "cz"]
     qaoa_depth = int(config['qaoa_depth'])
     geyset_iterations = int(config['iterations'])
