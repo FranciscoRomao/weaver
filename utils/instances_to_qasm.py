@@ -75,7 +75,8 @@ instances_names = [ 'uf20-01.cnf',
 
 def run():
 
-    basis_gates = ["rx", "rz", "x", "y", "z", "h", "id", "cz"]
+    #basis_gates = ["rx", "rz", "x", "y", "z", "h", "id", "cz"]
+    basis_gates = ["u3", "cz"]
     qaoas_instances = []
 
     transpiled_circuits = []

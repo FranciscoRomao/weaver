@@ -26,7 +26,7 @@ def plot_compilation_time():
     data_geyser = pd.read_csv('results/geyser_results.csv')
     data_superconducting = pd.read_csv('results/superconducting_results.csv')
     data_weaver = pd.read_csv('results/weaver_results.csv')
-    data_dpqa = pd.read_csv('results/dpqa_results0.csv')
+    data_dpqa = pd.read_csv('results/dpqa_results.csv')
 
     data = []
     fig, ax = plt.subplots(1,2, figsize=(20, 4.5))
@@ -151,7 +151,7 @@ def plot_execution_time():
         data_geyser = pd.read_csv('results/geyser_results.csv')
         data_superconducting = pd.read_csv('results/superconducting_results.csv')
         data_weaver = pd.read_csv('results/weaver_results.csv')
-        data_dpqa = pd.read_csv('results/dpqa_results0.csv')
+        data_dpqa = pd.read_csv('results/dpqa_results.csv')
 
         data = []
         fig, ax = plt.subplots(1,2, figsize=(20, 4.5))
@@ -279,7 +279,7 @@ def plot_fidelity():
         data_geyser = pd.read_csv('results/geyser_results.csv')
         data_superconducting = pd.read_csv('results/superconducting_results.csv')
         data_weaver = pd.read_csv('results/weaver_results.csv')
-        data_dpqa = pd.read_csv('results/dpqa_results0.csv')
+        data_dpqa = pd.read_csv('results/dpqa_results.csv')
 
         benchmarks = ['uf20-01', 'uf20-02', 'uf20-03', 'uf20-04', 'uf20-05', 'uf20-06', 'uf20-07', 'uf20-08', 'uf20-09', 'uf20-10', 'Mean']
         var = 20
@@ -443,7 +443,7 @@ def plot_analysis():
         data_geyser = pd.read_csv('results/geyser_results.csv')
         data_superconducting = pd.read_csv('results/superconducting_results.csv')
         data_weaver = pd.read_csv('results/weaver_results.csv')
-        data_dpqa = pd.read_csv('results/dpqa_results0.csv')
+        data_dpqa = pd.read_csv('results/dpqa_results.csv')
 
         var = 20
 
