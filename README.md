@@ -80,6 +80,7 @@ Each `.cnf` file contains a header and a list of clauses. See the following exam
 
 This header states that the problem formulation has 20 variables and 91 clauses.
 One could rewrite a different max-3SAT problem formulation by changing the header to the number of variables and clauses the problem composes and, following the header, listing the clauses, one per line.
+
 The file `weaver_run.py` looks at the folder pointed by the variable `benchmarks_dir`, which one can change to direct to their problem formulations.
 
 
