@@ -1,10 +1,7 @@
 from compilers.DPQA.solve import DPQA
 from compilers.DPQA.animation import CodeGen
-import argparse
 import json
-import pdb
 import pandas as pd
-from time import perf_counter
 from math import e
 from qiskit import QuantumCircuit
 import os
@@ -22,28 +19,18 @@ t2_time = 1.5 * 10**6
 
 qaoa_depth = 1
 
-#instances_names = ['uf20-01.cnf',
-#                    'uf20-02.cnf',
-#                    'uf20-03.cnf',
-#                    'uf20-04.cnf',
-#                    'uf20-05.cnf',
-#                    'uf20-06.cnf',
-#                    'uf20-07.cnf',
-#                    'uf20-08.cnf',
-#                    'uf20-09.cnf',
-#                    'uf20-010.cnf',]
+instances_names = ['uf20-01.cnf',
+                    'uf20-02.cnf',
+                    'uf20-03.cnf',
+                    'uf20-04.cnf',
+                    'uf20-05.cnf',
+                    'uf20-06.cnf',
+                    'uf20-07.cnf',
+                    'uf20-08.cnf',
+                    'uf20-09.cnf',
+                    'uf20-010.cnf']
 
-#instances_names = ['uf3-01.cnf',
-#                    'uf3-02.cnf',
-#                    'uf3-03.cnf',
-#                    'uf3-04.cnf',
-#                    'uf3-05.cnf']
-#
 def run():
-
-    basis_gates = ["rx", "rz", "x", "y", "z", "h", "id", "cz"]
-    qaoas_instances = []
-    transpiled_circuits = []
 
     results = pd.DataFrame(columns=['n_variables', 'qaoa_depth', '1q_gates', '2q_gates', 'compile_time', 'execution_time', 'eps'])
 

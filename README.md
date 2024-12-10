@@ -69,3 +69,17 @@ Running run.py will execute several scripts sequentially to process MAX-3SAT ins
 
 ## Evaluation and Expected Results
 The script will output runtime information for each step, providing progress updates and preventing confusion if stages take longer. Variations in output plots compared to the paper should be minimal (not exceeding 5%).
+
+## Reusing Weaver
+Weaver can be easily reused. It expects as inputs a file with a MAX-3SAT formulation.
+The expected file format is easily replicable and can be checked on the benchmark files in `benchmarks/max3SAT`.
+
+Each `.cnf` file contains a header and a list of clauses. See the following example header:
+
+`p cnf 20  91`
+
+This header states that the problem formulation has 20 variables and 91 clauses.
+One could rewrite a different max-3SAT problem formulation by changing the header to the number of variables and clauses the problem composes and, following the header, listing the clauses, one per line.
+The file `weaver_run.py` looks at the folder pointed by the variable `benchmarks_dir`, which one can change to direct to their problem formulations.
+
+

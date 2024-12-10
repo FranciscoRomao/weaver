@@ -26,9 +26,11 @@ columns = [
     "fpqa_config"
 ]
 
+benchmarks_dir = "./benchmarks/max3SAT"
+
 def run():
     ccz_fidelities = [0.9775, 0.98, 0.9825, 0.985, 0.9875, 0.99, 0.9925, 0.995, 0.9975]
-    benchmarks = list(filter(lambda f: f.endswith(".cnf"), os.listdir("./benchmarks/max3SAT")))
+    benchmarks = list(filter(lambda f: f.endswith(".cnf"), os.listdir(benchmarks_dir)))
     num_benchmarks = len(benchmarks)
 
     for index, filename in enumerate(benchmarks):
@@ -36,7 +38,7 @@ def run():
         print(f"Compiling {filename} ({index + 1}/{num_benchmarks})...")
         if not filename.endswith(".cnf"):
             continue
-        formula = CNF(from_file=f"./benchmarks/max3SAT/{filename}")
+        formula = CNF(from_file=f"{benchmarks_dir}/{filename}")
         num_colors, color_map = get_color_map(formula)
         start_time = time.time()
         compiler = Max3satQaoaCompiler(formula, fpqa_config)
